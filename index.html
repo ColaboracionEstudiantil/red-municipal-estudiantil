@@ -6,13 +6,15 @@
 <title>Red Municipal de Colaboración Estudiantil</title>
 <style>
 :root {
-  --primary-dark: #0f1923;
-  --card-bg: #16222f;
-  --accent-gold: #ffcc00;
-  --accent-blue: #00d2ff;
-  --text-main: #f0f4f8;
-  --text-muted: #8b9bb4;
-  --border-color: #26384d;
+  --bg-main: #f0f4f8;
+  --card-bg: #ffffff;
+  --primary-teal: #00bfa5;
+  --primary-teal-light: #e0f2f1;
+  --text-main: #2d3748;
+  --text-muted: #a0aec0;
+  --border-color: #e2e8f0;
+  --accent-gold: #ffb703;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
 }
 
 * {
@@ -23,19 +25,16 @@
 
 body {
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  background: var(--primary-dark);
+  background: var(--bg-main);
   color: var(--text-main);
-  line-height: 1.6;
-  background-image: 
-    radial-gradient(circle at 10% 20%, rgba(0, 210, 255, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(255, 204, 0, 0.05) 0%, transparent 40%);
+  line-height: 1.5;
   min-height: 100vh;
 }
 
-/* AUTH SCREEN */
+/* AUTH SCREEN (MODERNO Y LIMPIO) */
 .auth-screen {
   min-height: 100vh;
-  background: linear-gradient(135deg, #090e17 0%, #16222f 100%);
+  background: linear-gradient(135deg, #e0f2f1 0%, #f0f4f8 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,80 +43,76 @@ body {
 
 .auth-container {
   background: var(--card-bg);
-  border: 1px solid var(--border-color);
   padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.5), 0 0 20px rgba(0, 210, 255, 0.1);
-  max-width: 500px;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  max-width: 480px;
   width: 100%;
 }
 
 .auth-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .auth-logo {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, var(--accent-gold), #ff9900);
-  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  background: var(--primary-teal);
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 32px;
-  font-weight: 900;
-  color: #0f1923;
-  margin: 0 auto 20px;
-  box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
+  font-size: 28px;
+  font-weight: 800;
+  color: white;
+  margin: 0 auto 15px;
+  box-shadow: 0 10px 20px rgba(0, 191, 165, 0.3);
 }
 
 .auth-header h1 {
   color: var(--text-main);
-  font-size: 24px;
-  margin-bottom: 8px;
-  letter-spacing: 0.5px;
+  font-size: 22px;
+  margin-bottom: 5px;
 }
 
 .auth-header p {
   color: var(--text-muted);
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .auth-tabs {
   display: flex;
-  gap: 10px;
-  margin-bottom: 30px;
-  border-bottom: 2px solid var(--border-color);
+  background: #f7fafc;
+  padding: 4px;
+  border-radius: 14px;
+  gap: 5px;
+  margin-bottom: 25px;
 }
 
 .auth-tab {
   flex: 1;
-  padding: 12px;
+  padding: 10px;
   background: none;
   border: none;
   color: var(--text-muted);
-  font-size: 15px;
+  font-size: 14px;
   cursor: pointer;
-  transition: all 0.3s;
-  border-bottom: 3px solid transparent;
-  margin-bottom: -2px;
+  border-radius: 10px;
   font-weight: 600;
-}
-
-.auth-tab:hover {
-  color: var(--text-main);
+  transition: all 0.3s;
 }
 
 .auth-tab.active {
-  color: var(--accent-gold);
-  border-bottom-color: var(--accent-gold);
+  background: white;
+  color: var(--primary-teal);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .auth-form {
   display: none;
   flex-direction: column;
-  gap: 18px;
+  gap: 15px;
 }
 
 .auth-form.active {
@@ -132,17 +127,17 @@ body {
 .form-group label {
   color: var(--text-main);
   font-weight: 600;
-  margin-bottom: 8px;
-  font-size: 14px;
+  margin-bottom: 6px;
+  font-size: 13px;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-  padding: 12px 15px;
-  background: #0b121a;
-  border: 2px solid var(--border-color);
-  border-radius: 8px;
+  padding: 12px 16px;
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
   color: var(--text-main);
   font-size: 14px;
   font-family: inherit;
@@ -153,16 +148,13 @@ body {
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--accent-blue);
-  box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
+  border-color: var(--primary-teal);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(0, 191, 165, 0.1);
 }
 
 .search-container {
   position: relative;
-}
-
-.search-input {
-  width: 100%;
 }
 
 .search-results {
@@ -170,15 +162,15 @@ body {
   top: 100%;
   left: 0;
   right: 0;
-  background: var(--card-bg);
-  border: 2px solid var(--border-color);
-  border-radius: 8px;
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
   max-height: 200px;
   overflow-y: auto;
   z-index: 100;
   display: none;
   margin-top: 5px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+  box-shadow: var(--shadow);
 }
 
 .search-results.show {
@@ -188,225 +180,212 @@ body {
 .search-item {
   padding: 12px;
   cursor: pointer;
-  border-bottom: 1px solid var(--border-color);
-  transition: background 0.2s;
+  border-bottom: 1px solid #f1f5f9;
 }
 
 .search-item:hover {
-  background: rgba(0, 210, 255, 0.1);
-}
-
-.search-item strong {
-  color: var(--accent-blue);
-  display: block;
-  margin-bottom: 3px;
-}
-
-.search-item small {
-  color: var(--text-muted);
-  font-size: 12px;
+  background: #f8fafc;
 }
 
 .btn-auth {
-  background: linear-gradient(135deg, var(--accent-gold), #e6b800);
-  color: #0f1923;
+  background: var(--primary-teal);
+  color: white;
   padding: 14px;
   border: none;
-  border-radius: 8px;
-  font-size: 15px;
+  border-radius: 12px;
+  font-size: 14px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s;
-  margin-top: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 5px 15px rgba(255, 204, 0, 0.2);
+  margin-top: 5px;
+  box-shadow: 0 8px 20px rgba(0, 191, 165, 0.3);
 }
 
 .btn-auth:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255, 204, 0, 0.4);
+  box-shadow: 0 12px 24px rgba(0, 191, 165, 0.4);
 }
 
 .role-info {
-  background: rgba(0, 210, 255, 0.08);
-  border-left: 4px solid var(--accent-blue);
-  padding: 15px;
-  border-radius: 6px;
+  background: var(--primary-teal-light);
+  border-left: 4px solid var(--primary-teal);
+  padding: 12px;
+  border-radius: 8px;
   font-size: 13px;
-  color: var(--text-main);
+  color: #00796b;
 }
 
-/* MAIN APP */
+/* DASHBOARD LAYOUT PRINCIPAL */
 .app-container {
   display: none;
+  min-height: 100vh;
 }
 
 .app-container.active {
-  display: block;
+  display: flex;
 }
 
-/* HEADER */
-.header {
-  background: rgba(15, 25, 35, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border-color);
-  color: white;
-  padding: 15px 30px;
-  position: sticky;
+/* BARRA LATERAL ESTILO REFERENCIA */
+.sidebar-nav {
+  width: 90px;
+  background: white;
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 0;
+  position: fixed;
   top: 0;
-  z-index: 1000;
+  bottom: 0;
+  z-index: 100;
 }
 
-.header-content {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.logo-icon {
-  width: 45px;
-  height: 45px;
-  background: linear-gradient(135deg, var(--accent-gold), #ff9900);
-  border-radius: 12px;
+.sidebar-logo {
+  width: 50px;
+  height: 50px;
+  background: var(--primary-teal);
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
+  font-weight: 800;
   font-size: 20px;
-  font-weight: 900;
-  color: #0f1923;
-  box-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
+  margin-bottom: 40px;
+  box-shadow: 0 8px 16px rgba(0, 191, 165, 0.3);
 }
 
-.logo-text h1 {
+.nav-links-col {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  align-items: center;
+  flex: 1;
+}
+
+.nav-icon-btn {
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border: none;
+  border-radius: 14px;
+  color: var(--text-muted);
   font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
 }
 
-.logo-text p {
-  font-size: 11px;
+.nav-icon-btn:hover {
+  background: var(--primary-teal-light);
+  color: var(--primary-teal);
+}
+
+.nav-icon-btn.active {
+  background: var(--primary-teal);
+  color: white;
+  box-shadow: 0 8px 16px rgba(0, 191, 165, 0.3);
+}
+
+.sidebar-user-avatar {
+  width: 45px;
+  height: 45px;
+  background: #cbd5e1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--text-main);
+  border: 2px solid white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* CONTENIDO PRINCIPAL A LA DERECHA DE LA BARRA */
+.main-wrapper {
+  margin-left: 90px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TOP HEADER */
+.top-header {
+  background: white;
+  padding: 20px 40px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 90;
+}
+
+.header-title-box h2 {
+  font-size: 22px;
+  color: var(--text-main);
+}
+
+.header-title-box p {
+  font-size: 12px;
   color: var(--text-muted);
 }
 
-.header-right {
+.header-user-section {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.user-info {
+.user-info-box {
   text-align: right;
 }
 
-.user-info .name {
+.user-info-box .name {
+  font-weight: 700;
   font-size: 14px;
-  font-weight: 600;
 }
 
-.user-info .role-badge {
+.role-badge {
   display: inline-block;
-  padding: 3px 10px;
+  padding: 2px 10px;
   border-radius: 20px;
   font-size: 10px;
   font-weight: 700;
-  margin-top: 3px;
   text-transform: uppercase;
 }
 
-.role-badge.estudiante {
-  background: rgba(46, 125, 50, 0.2);
-  color: #4caf50;
-  border: 1px solid rgba(76, 175, 80, 0.3);
-}
-
-.role-badge.vocero {
-  background: rgba(245, 124, 0, 0.2);
-  color: #ffa726;
-  border: 1px solid rgba(255, 167, 38, 0.3);
-}
-
-.role-badge.profesor {
-  background: rgba(21, 101, 192, 0.2);
-  color: var(--accent-blue);
-  border: 1px solid rgba(0, 210, 255, 0.3);
-}
-
-.role-badge.superadmin {
-  background: rgba(194, 24, 91, 0.2);
-  color: #ff4081;
-  border: 1px solid rgba(255, 64, 129, 0.3);
-}
+.role-badge.estudiante { background: #e8f5e9; color: #2e7d32; }
+.role-badge.vocero { background: #fff3e0; color: #f57c00; }
+.role-badge.profesor { background: #e3f2fd; color: #1565c0; }
+.role-badge.superadmin { background: #fce4ec; color: #c2185b; }
 
 .btn-logout {
-  background: rgba(255,255,255,0.05);
-  color: var(--text-main);
-  padding: 8px 16px;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  font-size: 13px;
+  background: #fee2e2;
+  color: #ef4444;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.2s;
 }
 
 .btn-logout:hover {
-  background: rgba(255, 64, 129, 0.2);
-  border-color: #ff4081;
-  color: #ff4081;
+  background: #ef4444;
+  color: white;
 }
 
-/* NAVIGATION */
-.nav-tabs {
-  background: #121c26;
-  border-bottom: 1px solid var(--border-color);
-  padding: 0 30px;
-  overflow-x: auto;
-}
-
-.nav-tabs-content {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: flex;
-  gap: 5px;
-}
-
-.nav-tab {
-  padding: 16px 20px;
-  background: none;
-  border: none;
-  color: var(--text-muted);
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.3s;
-  border-bottom: 3px solid transparent;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.nav-tab:hover {
-  color: var(--text-main);
-  background: rgba(255,255,255,0.02);
-}
-
-.nav-tab.active {
-  color: var(--accent-blue);
-  border-bottom-color: var(--accent-blue);
-  background: rgba(0, 210, 255, 0.05);
-}
-
-/* MAIN CONTENT */
-.main-content {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 30px;
+/* CONTENIDO Y SECCIONES */
+.content-area {
+  padding: 35px 40px;
+  max-width: 1300px;
+  width: 100%;
 }
 
 .section {
@@ -417,77 +396,56 @@ body {
   display: block;
 }
 
-/* MOTIVATIONAL BANNER */
+/* BANNER MOTIVACIONAL ESTILO TARJETA */
 .motivation-banner {
-  background: linear-gradient(135deg, rgba(22, 34, 47, 0.9), rgba(15, 25, 35, 0.9));
-  border: 1px solid var(--border-color);
-  border-left: 5px solid var(--accent-gold);
-  padding: 20px 25px;
-  border-radius: 12px;
-  margin-bottom: 25px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, var(--primary-teal), #00897b);
+  color: white;
+  padding: 25px 30px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 15px 30px rgba(0, 191, 165, 0.2);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.motivation-content h4 {
-  color: var(--accent-gold);
-  font-size: 12px;
+.motivation-banner h4 {
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 6px;
+  opacity: 0.8;
+  margin-bottom: 5px;
 }
 
-.motivation-content p {
-  color: var(--text-main);
-  font-size: 15px;
-  font-weight: 500;
+.motivation-banner p {
+  font-size: 16px;
+  font-weight: 600;
   font-style: italic;
 }
 
 .btn-next-quote {
-  background: rgba(255, 204, 0, 0.1);
-  color: var(--accent-gold);
-  border: 1px solid rgba(255, 204, 0, 0.3);
-  padding: 8px 14px;
-  border-radius: 8px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 12px;
   cursor: pointer;
   font-size: 12px;
   font-weight: 600;
-  transition: all 0.3s;
+  backdrop-filter: blur(5px);
+  transition: all 0.2s;
   white-space: nowrap;
-  margin-left: 15px;
 }
 
 .btn-next-quote:hover {
-  background: var(--accent-gold);
-  color: #0f1923;
-  box-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
+  background: white;
+  color: var(--primary-teal);
 }
 
-/* PERMISSION NOTICE */
-.permission-notice {
-  background: rgba(255, 152, 0, 0.1);
-  border-left: 4px solid #ff9800;
-  padding: 15px 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  font-size: 14px;
-  color: #ffb74d;
-  border: 1px solid rgba(255, 152, 0, 0.2);
-}
-
-.permission-notice strong {
-  display: block;
-  margin-bottom: 5px;
-  color: #ff9800;
-}
-
-/* FEED DE NOTICIAS */
+/* GRID DE FEED Y WIDGETS */
 .feed-container {
   display: grid;
-  grid-template-columns: 1fr 350px;
+  grid-template-columns: 1fr 340px;
   gap: 30px;
 }
 
@@ -497,108 +455,82 @@ body {
   gap: 20px;
 }
 
-.post-composer, .talent-composer, .event-composer, .admin-card {
+/* TARJETAS BLANCAS FLOTANTES */
+.post-composer, .talent-composer, .event-composer, .admin-card, .sidebar-widget, .post, .infra-form-container, .infra-list-container {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
 }
 
-.post-composer h3, .talent-composer h3, .event-composer h3, .admin-card h3 {
+.post-composer h3, .talent-composer h3, .event-composer h3, .admin-card h3, .sidebar-widget h3, .infra-form-container h3, .infra-list-container h3 {
   color: var(--text-main);
-  margin-bottom: 15px;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  margin-bottom: 18px;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .post-type-selector {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 8px;
+  margin-bottom: 15px;
   flex-wrap: wrap;
 }
 
 .post-type-btn {
-  padding: 10px 18px;
-  background: #0b121a;
+  padding: 8px 14px;
+  background: #f8fafc;
   border: 1px solid var(--border-color);
-  border-radius: 8px;
-  color: var(--text-muted);
-  font-size: 13px;
+  border-radius: 10px;
+  font-size: 12px;
   font-weight: 600;
+  color: var(--text-muted);
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.2s;
 }
 
 .post-type-btn:hover {
-  background: rgba(0, 210, 255, 0.05);
+  background: #edf2f7;
   color: var(--text-main);
-  border-color: var(--accent-blue);
 }
 
 .post-type-btn.active {
-  background: var(--accent-blue);
-  color: #0f1923;
-  border-color: var(--accent-blue);
-  box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+  background: var(--primary-teal-light);
+  color: var(--primary-teal);
+  border-color: var(--primary-teal);
 }
 
 .post-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 14px;
 }
 
-.post-form textarea {
-  padding: 15px;
-  background: #0b121a;
-  border: 2px solid var(--border-color);
-  border-radius: 8px;
-  color: var(--text-main);
-  font-size: 14px;
-  resize: vertical;
-  min-height: 100px;
+.post-form textarea, .post-form input, .post-form select {
+  padding: 12px 14px;
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  font-size: 13px;
   font-family: inherit;
-}
-
-.post-form textarea:focus {
-  outline: none;
-  border-color: var(--accent-blue);
-}
-
-.post-form input,
-.post-form select {
-  padding: 12px;
-  background: #0b121a;
-  border: 2px solid var(--border-color);
-  border-radius: 8px;
   color: var(--text-main);
-  font-size: 14px;
 }
 
-.post-form input:focus,
-.post-form select:focus {
+.post-form textarea:focus, .post-form input:focus, .post-form select:focus {
   outline: none;
-  border-color: var(--accent-blue);
+  border-color: var(--primary-teal);
+  background: white;
 }
 
 .file-upload {
   border: 2px dashed var(--border-color);
-  padding: 20px;
+  padding: 15px;
   text-align: center;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.3s;
+  background: #f8fafc;
   display: block;
-  background: #0b121a;
-}
-
-.file-upload:hover {
-  border-color: var(--accent-blue);
-  background: rgba(0, 210, 255, 0.02);
 }
 
 .file-upload input[type="file"] {
@@ -606,58 +538,44 @@ body {
 }
 
 .file-upload-label {
+  font-size: 12px;
   color: var(--text-muted);
-  font-size: 13px;
 }
 
 .file-upload-label strong {
-  color: var(--accent-blue);
+  color: var(--primary-teal);
   display: block;
-  margin-bottom: 3px;
+  margin-bottom: 2px;
 }
 
 .btn-publish {
-  background: linear-gradient(135deg, var(--accent-blue), #0099cc);
-  color: #0f1923;
-  padding: 14px;
+  background: var(--primary-teal);
+  color: white;
+  padding: 12px;
   border: none;
-  border-radius: 8px;
-  font-size: 15px;
+  border-radius: 12px;
+  font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 5px 15px rgba(0, 210, 255, 0.2);
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 191, 165, 0.2);
 }
 
 .btn-publish:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 210, 255, 0.4);
+  box-shadow: 0 8px 16px rgba(0, 191, 165, 0.3);
 }
 
 /* POSTS */
 .post {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
   margin-bottom: 15px;
-  position: relative;
-  transition: transform 0.2s, border-color 0.2s;
-}
-
-.post:hover {
-  border-color: rgba(0, 210, 255, 0.3);
-  transform: translateY(-2px);
 }
 
 .post-header {
   display: flex;
   justify-content: space-between;
   align-items: start;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .post-author {
@@ -667,90 +585,83 @@ body {
 }
 
 .post-avatar {
-  width: 45px;
-  height: 45px;
-  background: linear-gradient(135deg, var(--accent-blue), #005580);
+  width: 40px;
+  height: 40px;
+  background: var(--primary-teal-light);
+  color: var(--primary-teal);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
   font-weight: 700;
-  font-size: 16px;
-  box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
+  font-size: 14px;
 }
 
 .post-author-info h4 {
+  font-size: 14px;
   color: var(--text-main);
-  font-size: 15px;
-  margin-bottom: 3px;
+  margin-bottom: 2px;
 }
 
 .post-author-info p {
+  font-size: 11px;
   color: var(--text-muted);
-  font-size: 12px;
 }
 
 .post-type-badge {
-  background: rgba(255, 204, 0, 0.1);
-  color: var(--accent-gold);
-  border: 1px solid rgba(255, 204, 0, 0.3);
-  padding: 5px 12px;
+  background: #fff8e1;
+  color: #f59e0b;
+  padding: 4px 10px;
   border-radius: 20px;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
 }
 
 .post-content {
+  font-size: 14px;
   color: var(--text-main);
-  font-size: 15px;
-  line-height: 1.7;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .post-media-container {
-  margin: 15px 0;
-  border-radius: 8px;
+  margin: 12px 0;
+  border-radius: 12px;
   overflow: hidden;
-  max-height: 400px;
+  max-height: 350px;
   background: #000;
   display: flex;
   justify-content: center;
-  align-items: center;
-  border: 1px solid var(--border-color);
 }
 
 .post-media-container img, .post-media-container video {
   width: 100%;
-  height: auto;
-  max-height: 400px;
+  max-height: 350px;
   object-fit: contain;
 }
 
 .post-tags {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .post-tag {
-  background: #0b121a;
-  color: var(--accent-blue);
-  border: 1px solid var(--border-color);
-  padding: 5px 12px;
-  border-radius: 15px;
-  font-size: 12px;
-  font-weight: 500;
+  background: #f1f5f9;
+  color: var(--primary-teal);
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .post-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 15px;
-  border-top: 1px solid var(--border-color);
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
 }
 
 .post-action {
@@ -762,63 +673,48 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
-  transition: color 0.3s;
   font-weight: 600;
+  transition: color 0.2s;
 }
 
 .post-action:hover {
-  color: var(--accent-blue);
+  color: var(--primary-teal);
 }
 
 .post-action.liked {
-  color: var(--accent-gold);
+  color: #f59e0b;
 }
 
 .btn-delete {
-  background: rgba(244, 67, 54, 0.1);
-  color: #ff5252;
-  border: 1px solid rgba(244, 67, 54, 0.3);
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 12px;
+  background: #fee2e2;
+  color: #ef4444;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 11px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .btn-delete:hover {
-  background: #f44336;
+  background: #ef4444;
   color: white;
 }
 
-/* SIDEBAR */
+/* WIDGETS Y ESTADÍSTICAS */
 .sidebar {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.sidebar-widget {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-}
-
-.sidebar-widget h3 {
-  color: var(--text-main);
-  font-size: 16px;
-  margin-bottom: 15px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid var(--accent-blue);
-}
-
 .stat-item {
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 13px;
 }
 
 .stat-item:last-child {
@@ -827,118 +723,49 @@ body {
 
 .stat-label {
   color: var(--text-muted);
-  font-size: 13px;
 }
 
 .stat-value {
-  color: var(--accent-gold);
+  color: var(--primary-teal);
   font-weight: 700;
-  font-size: 16px;
 }
 
-/* INFRAESTRUCTURA SECTION */
-.infra-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
-
-.infra-form-container,
-.infra-list-container {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-}
-
-.infra-form-container h3,
-.infra-list-container h3 {
-  color: var(--text-main);
-  margin-bottom: 20px;
-  font-size: 20px;
-}
-
-.report-item {
-  background: #0b121a;
-  border: 1px solid var(--border-color);
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  border-left: 5px solid #ff5252;
-}
-
-.report-item.high {
-  border-left-color: #ffa726;
-}
-
-.report-item.medium {
-  border-left-color: #66bb6a;
-}
-
-.report-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.report-header h4 {
-  color: var(--text-main);
-  font-size: 15px;
-}
-
-.report-description {
-  color: var(--text-muted);
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-.report-footer {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-/* TALENTO & CHARLAS SECTION */
+/* GRID DE PROYECTOS Y TARJETAS */
 .talent-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
 }
 
 .talent-card {
-  background: var(--card-bg);
+  background: white;
   border: 1px solid var(--border-color);
-  border-radius: 12px;
+  border-radius: 20px;
   overflow: hidden;
-  transition: all 0.3s;
-  position: relative;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s;
 }
 
 .talent-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 210, 255, 0.15);
-  border-color: var(--accent-blue);
+  transform: translateY(-4px);
 }
 
 .talent-card-header {
-  background: linear-gradient(135deg, #16222f 0%, #0b121a 100%);
-  color: white;
+  background: linear-gradient(135deg, #f8fafc, #edf2f7);
   padding: 20px;
   border-bottom: 1px solid var(--border-color);
 }
 
 .talent-card-header h3 {
-  font-size: 18px;
-  margin-bottom: 5px;
+  font-size: 16px;
   color: var(--text-main);
+  margin-bottom: 4px;
 }
 
 .talent-card-header p {
-  font-size: 13px;
-  color: var(--accent-blue);
+  font-size: 12px;
+  color: var(--primary-teal);
+  font-weight: 600;
 }
 
 .talent-card-body {
@@ -946,135 +773,122 @@ body {
 }
 
 .talent-card-body p {
+  font-size: 13px;
   color: var(--text-muted);
-  font-size: 14px;
   margin-bottom: 15px;
 }
 
-/* EVENTOS SECTION */
+/* INFRAESTRUCTURA Y EVENTOS */
+.infra-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.report-item {
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  padding: 16px;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  border-left: 4px solid #ef4444;
+}
+
+.report-item.high { border-left-color: #f59e0b; }
+.report-item.medium { border-left-color: #10b981; }
+
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.report-description {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.report-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
 .event-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 .event-card {
-  background: var(--card-bg);
+  background: white;
   border: 1px solid var(--border-color);
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
   display: flex;
-  gap: 25px;
-  position: relative;
+  gap: 20px;
+  align-items: center;
 }
 
 .event-date {
-  background: linear-gradient(135deg, var(--accent-blue), #005580);
-  color: #0f1923;
-  padding: 20px;
-  border-radius: 10px;
+  background: var(--primary-teal-light);
+  color: var(--primary-teal);
+  padding: 15px;
+  border-radius: 14px;
   text-align: center;
-  min-width: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  min-width: 80px;
   font-weight: 800;
-  box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
 }
 
-.event-date .day {
-  font-size: 32px;
-  line-height: 1;
-}
+.event-date .day { font-size: 24px; line-height: 1; }
+.event-date .month { font-size: 10px; text-transform: uppercase; margin-top: 2px; }
 
-.event-date .month {
-  font-size: 12px;
-  text-transform: uppercase;
-  margin-top: 5px;
-  letter-spacing: 1px;
-}
+.event-info h3 { font-size: 16px; margin-bottom: 4px; }
+.event-info p { font-size: 13px; color: var(--text-muted); }
 
-.event-info {
-  flex: 1;
-}
-
-.event-info h3 {
-  color: var(--text-main);
-  margin-bottom: 10px;
-  font-size: 20px;
-}
-
-.event-info p {
-  color: var(--text-muted);
-  font-size: 14px;
-}
-
-.event-details {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  margin: 15px 0;
-  font-size: 14px;
-  color: var(--text-muted);
-}
-
-/* TABLA DE USUARIOS ADMIN */
 .user-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .user-table th, .user-table td {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid var(--border-color);
-  font-size: 14px;
+  font-size: 13px;
 }
 
-.user-table th {
-  background: #0b121a;
-  color: var(--accent-blue);
-}
+.user-table th { color: var(--text-muted); font-weight: 600; }
 
-.user-table td {
-  color: var(--text-main);
-}
-
-/* NOTIFICATIONS */
+/* NOTIFICACIONES */
 .notification {
   position: fixed;
-  top: 30px;
-  right: 30px;
-  background: #1b5e20;
-  color: #c8e6c9;
-  border: 1px solid #4caf50;
-  padding: 15px 25px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  top: 25px;
+  right: 25px;
+  background: #10b981;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   z-index: 2000;
   display: none;
   font-weight: 600;
+  font-size: 13px;
 }
 
-.notification.error {
-  background: #b71c1c;
-  color: #ffcdd2;
-  border-color: #f44336;
-}
-
-.notification.show {
-  display: block;
-}
+.notification.error { background: #ef4444; }
+.notification.show { display: block; }
 
 @media (max-width: 1024px) {
-  .feed-container, .infra-grid {
-    grid-template-columns: 1fr;
-  }
-  .sidebar {
-    display: flex;
-  }
+  .feed-container, .infra-grid { grid-template-columns: 1fr; }
+  .sidebar-nav { width: 70px; }
+  .main-wrapper { margin-left: 70px; }
 }
 </style>
 </head>
@@ -1155,9 +969,9 @@ body {
       </div>
 
       <div class="form-group" id="authCodeGroup" style="display: none;">
-        <label style="color: #ffcc00;">🔒 Código de Autorización Institucional</label>
-        <input type="password" id="regAuthCode" placeholder="Ingrese el PIN entregado por la dirección">
-        <small style="color: #8b9bb4; margin-top: 4px;">Este código es obligatorio para validar cuentas de Vocero o Profesor.</small>
+        <label style="color: var(--primary-teal);">🔒 Código de Autorización Institucional</label>
+        <input type="password" id="regAuthCode" placeholder="PIN de Vocero o Profesor">
+        <small style="color: var(--text-muted); margin-top: 4px;">Obligatorio para validar roles avanzados.</small>
       </div>
       
       <div id="roleInfoBox" class="role-info" style="display: none;"></div>
@@ -1167,301 +981,300 @@ body {
   </div>
 </div>
 
-<!-- MAIN APP -->
+<!-- MAIN APP (ESTILO DASHBOARD FLOTANTE) -->
 <div class="app-container" id="appContainer">
   
-  <div class="header">
-    <div class="header-content">
-      <div class="logo">
-        <div class="logo-icon">RM</div>
-        <div class="logo-text">
-          <h1>Red Municipal Estudiantil</h1>
-          <p>Colaboración Intercolegial</p>
-        </div>
+  <!-- BARRA LATERAL ESTILO REFERENCIA -->
+  <div class="sidebar-nav">
+    <div class="sidebar-logo">RM</div>
+    <div class="nav-links-col">
+      <button class="nav-icon-btn active" title="Feed Principal" onclick="showSection('feed', this)">📰</button>
+      <button class="nav-icon-btn" title="Infraestructura" onclick="showSection('infraestructura', this)">🏗️</button>
+      <button class="nav-icon-btn" title="Rutas de Talento" onclick="showSection('talento', this)">🎓</button>
+      <button class="nav-icon-btn" title="Charlas" onclick="showSection('charlas', this)">🎙️</button>
+      <button class="nav-icon-btn" title="Eventos" onclick="showSection('eventos', this)">📅</button>
+      <button class="nav-icon-btn" title="Microcontenidos" onclick="showSection('microcontenidos', this)">🎬</button>
+      <button class="nav-icon-btn" id="adminConfigTab" style="display: none;" title="Configuración Admin" onclick="showSection('admin-config', this)">⚙️</button>
+    </div>
+    <div class="sidebar-user-avatar" id="sidebarAvatar">T</div>
+  </div>
+
+  <div class="main-wrapper">
+    
+    <!-- HEADER SUPERIOR -->
+    <div class="top-header">
+      <div class="header-title-box">
+        <h2 id="pageTitleHeader">Feed Principal</h2>
+        <p>Red Municipal de Colaboración Estudiantil</p>
       </div>
       
-      <div class="header-right">
-        <div class="user-info">
+      <div class="header-user-section">
+        <div class="user-info-box">
           <div class="name" id="userName">Usuario</div>
           <span class="role-badge" id="userRoleBadge">Rol</span>
         </div>
         <button class="btn-logout" onclick="logout()">Cerrar Sesión</button>
       </div>
     </div>
-  </div>
-  
-  <div class="nav-tabs">
-    <div class="nav-tabs-content">
-      <button class="nav-tab active" onclick="showSection('feed', this)">📰 Feed Principal</button>
-      <button class="nav-tab" onclick="showSection('infraestructura', this)">🏗️ Infraestructura</button>
-      <button class="nav-tab" onclick="showSection('talento', this)">🎓 Rutas de Talento</button>
-      <button class="nav-tab" onclick="showSection('charlas', this)">🎙️ Charlas y Talleres</button>
-      <button class="nav-tab" onclick="showSection('eventos', this)">📅 Eventos</button>
-      <button class="nav-tab" onclick="showSection('microcontenidos', this)">🎬 Microcontenidos</button>
-      <button class="nav-tab" id="adminConfigTab" style="display: none; background: rgba(255,204,0,0.1); color: var(--accent-gold);" onclick="showSection('admin-config', this)">⚙️ Configuración Admin</button>
-    </div>
-  </div>
-  
-  <div class="main-content">
     
-    <!-- BANNER MOTIVACIONAL -->
-    <div class="motivation-banner">
-      <div class="motivation-content">
-        <h4>✨ Inspiración del Día / Crecimiento Personal</h4>
-        <p id="motivationText">"El éxito no es final, el fracaso no es fatal: lo que cuenta es el valor para continuar."</p>
+    <div class="content-area">
+      
+      <!-- BANNER MOTIVACIONAL -->
+      <div class="motivation-banner">
+        <div>
+          <h4>✨ Inspiración del Día</h4>
+          <p id="motivationText">"El éxito no es final, el fracaso no es fatal: lo que cuenta es el valor para continuar."</p>
+        </div>
+        <button class="btn-next-quote" onclick="rotateMotivation()">Siguiente 💡</button>
       </div>
-      <button class="btn-next-quote" onclick="rotateMotivation()">Siguiente frase 💡</button>
-    </div>
-    
-    <!-- FEED SECTION -->
-    <div class="section active" id="section-feed">
-      <div class="feed-container">
-        <div class="feed-main">
-          
-          <div class="post-composer" id="postComposer" style="display: none;">
-            <h3>📝 Publicar Actualización</h3>
-            <div class="post-type-selector">
-              <button class="post-type-btn active" onclick="selectPostType('noticia', this)">📢 Noticia</button>
-              <button class="post-type-btn" onclick="selectPostType('logro', this)">🏆 Logro</button>
-              <button class="post-type-btn" onclick="selectPostType('evento', this)">📅 Evento</button>
-              <button class="post-type-btn" onclick="selectPostType('recurso', this)">📚 Recurso</button>
-            </div>
+      
+      <!-- FEED SECTION -->
+      <div class="section active" id="section-feed">
+        <div class="feed-container">
+          <div class="feed-main">
             
-            <form class="post-form" onsubmit="publishPost(event)">
-              <input type="text" id="postTitle" placeholder="Título de la publicación" required>
-              <textarea id="postContent" placeholder="¿Qué quieres compartir con la red municipal?" required></textarea>
-              
-              <div id="mediaUploadWrapper" style="display: none;">
-                <label class="file-upload">
-                  <input type="file" id="postMediaFile" accept="image/*,video/*" onchange="previewMedia(event)">
-                  <div class="file-upload-label">
-                    <strong>📷 Subir Foto o Video (Opcional)</strong>
-                    <span id="fileNameDisplay">Haz clic para seleccionar un archivo multimedia</span>
-                  </div>
-                </label>
-                <div id="mediaPreviewContainer" style="margin-top: 10px;"></div>
+            <div class="post-composer" id="postComposer" style="display: none;">
+              <h3>📝 Publicar Actualización</h3>
+              <div class="post-type-selector">
+                <button class="post-type-btn active" onclick="selectPostType('noticia', this)">📢 Noticia</button>
+                <button class="post-type-btn" onclick="selectPostType('logro', this)">🏆 Logro</button>
+                <button class="post-type-btn" onclick="selectPostType('evento', this)">📅 Evento</button>
+                <button class="post-type-btn" onclick="selectPostType('recurso', this)">📚 Recurso</button>
               </div>
               
-              <input type="text" id="postTags" placeholder="Etiquetas (separadas por comas)">
-              <button type="submit" class="btn-publish">Publicar</button>
+              <form class="post-form" onsubmit="publishPost(event)">
+                <input type="text" id="postTitle" placeholder="Título de la publicación" required>
+                <textarea id="postContent" placeholder="¿Qué quieres compartir con la red municipal?" required></textarea>
+                
+                <div id="mediaUploadWrapper" style="display: none;">
+                  <label class="file-upload">
+                    <input type="file" id="postMediaFile" accept="image/*,video/*" onchange="previewMedia(event)">
+                    <div class="file-upload-label">
+                      <strong>📷 Subir Foto o Video</strong>
+                      <span id="fileNameDisplay">Haz clic para seleccionar archivo</span>
+                    </div>
+                  </label>
+                  <div id="mediaPreviewContainer" style="margin-top: 10px;"></div>
+                </div>
+                
+                <input type="text" id="postTags" placeholder="Etiquetas (ej: ciencia, deporte)">
+                <button type="submit" class="btn-publish">Publicar en la Red</button>
+              </form>
+            </div>
+            
+            <div style="background: #e0f2f1; border-left: 4px solid var(--primary-teal); padding: 15px; border-radius: 14px; font-size: 13px; color: #00796b; margin-bottom: 15px; display: none;" id="studentNotice">
+              <strong>👁️ Modo Estudiante:</strong> Puedes explorar publicaciones, dar "me gusta" y ver eventos. Para publicar, regístrate como Vocero o Profesor con tu PIN.
+            </div>
+            
+            <div id="postsFeed"></div>
+          </div>
+          
+          <div class="sidebar">
+            <div class="sidebar-widget">
+              <h3>📊 Estadísticas de la Red</h3>
+              <div class="stat-item"><span class="stat-label">Colegios Activos</span><span class="stat-value" id="statSchools">0</span></div>
+              <div class="stat-item"><span class="stat-label">Reportes Activos</span><span class="stat-value" id="statReports">0</span></div>
+              <div class="stat-item"><span class="stat-label">Proyectos</span><span class="stat-value" id="statTalents">0</span></div>
+              <div class="stat-item"><span class="stat-label">Charlas</span><span class="stat-value" id="statCharlas">0</span></div>
+              <div class="stat-item"><span class="stat-label">Eventos</span><span class="stat-value" id="statEvents">0</span></div>
+            </div>
+            
+            <div class="sidebar-widget">
+              <h3>⚠️ Alertas Recientes</h3>
+              <div id="alertsList"><p style="font-size: 12px; color: var(--text-muted);">Sin alertas críticas registradas.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- INFRAESTRUCTURA SECTION -->
+      <div class="section" id="section-infraestructura">
+        <div class="infra-grid">
+          <div class="infra-form-container" id="reportFormContainer" style="display: none;">
+            <h3>📋 Reportar Falla de Infraestructura</h3>
+            <form class="post-form" onsubmit="submitReport(event)">
+              <div class="form-group">
+                <label>Tipo de Falla</label>
+                <select id="reportType" required onchange="checkReportOther(this)">
+                  <option value="">Seleccione</option>
+                  <option value="agua">Falta de Agua</option>
+                  <option value="electricidad">Falla Eléctrica</option>
+                  <option value="transporte">Problemas de Transporte</option>
+                  <option value="seguridad">Inseguridad en Rutas</option>
+                  <option value="infraestructura">Daños en Infraestructura</option>
+                  <option value="otro">Otro (Especificar...)</option>
+                </select>
+              </div>
+              
+              <div class="form-group" id="reportOtherGroup" style="display: none;">
+                <label>Especifique</label>
+                <input type="text" id="reportOtherInput" placeholder="Describa el tipo de falla">
+              </div>
+              
+              <div class="form-group">
+                <label>Gravedad</label>
+                <select id="reportSeverity" required>
+                  <option value="high">Crítica / Alta</option>
+                  <option value="medium">Media / Parcial</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Descripción detallada</label>
+                <textarea id="reportDescription" placeholder="Detalles de la falla..." required></textarea>
+              </div>
+              <button type="submit" class="btn-publish">Enviar Reporte</button>
             </form>
           </div>
           
-          <div class="permission-notice" id="studentNotice" style="display: none;">
-            <strong>👁️ Modo Estudiante</strong>
-            Como estudiante puedes explorar publicaciones, dar "me gusta" y ver los eventos. Para publicar contenido regístrate como Vocero o Profesor con tu PIN asignado.
-          </div>
-          
-          <div id="postsFeed"></div>
-        </div>
-        
-        <div class="sidebar">
-          <div class="sidebar-widget">
-            <h3>📊 Estadísticas de la Red</h3>
-            <div class="stat-item"><span class="stat-label">Colegios Activos</span><span class="stat-value" id="statSchools">0</span></div>
-            <div class="stat-item"><span class="stat-label">Reportes Activos</span><span class="stat-value" id="statReports">0</span></div>
-            <div class="stat-item"><span class="stat-label">Proyectos</span><span class="stat-value" id="statTalents">0</span></div>
-            <div class="stat-item"><span class="stat-label">Charlas</span><span class="stat-value" id="statCharlas">0</span></div>
-            <div class="stat-item"><span class="stat-label">Eventos</span><span class="stat-value" id="statEvents">0</span></div>
-          </div>
-          
-          <div class="sidebar-widget">
-            <h3>⚠️ Alertas Recientes</h3>
-            <div id="alertsList"><p style="font-size: 13px; color: var(--text-muted);">Sin alertas críticas registradas.</p></div>
+          <div class="infra-list-container" style="grid-column: 1 / -1;" id="reportListWrapper">
+            <h3>📊 Reportes Activos en el Municipio</h3>
+            <div id="reportsList"></div>
           </div>
         </div>
       </div>
-    </div>
-    
-    <!-- INFRAESTRUCTURA SECTION -->
-    <div class="section" id="section-infraestructura">
-      <div class="infra-grid">
-        <div class="infra-form-container" id="reportFormContainer" style="display: none;">
-          <h3>📋 Reportar Falla de Infraestructura</h3>
-          <form class="post-form" onsubmit="submitReport(event)">
+      
+      <!-- TALENTO SECTION -->
+      <div class="section" id="section-talento">
+        <div class="talent-composer" id="talentComposer" style="display: none; margin-bottom: 20px;">
+          <h3>🎓 Compartir Proyecto o Talento</h3>
+          <form class="post-form" onsubmit="submitTalent(event)">
+            <input type="text" id="talentTitle" placeholder="Título del Proyecto" required>
+            
             <div class="form-group">
-              <label>Tipo de Falla</label>
-              <select id="reportType" required onchange="checkReportOther(this)">
+              <label>Categoría</label>
+              <select id="talentCategory" required onchange="checkTalentOther(this)">
                 <option value="">Seleccione</option>
-                <option value="agua">Falta de Agua</option>
-                <option value="electricidad">Falla Eléctrica</option>
-                <option value="transporte">Problemas de Transporte</option>
-                <option value="seguridad">Inseguridad en Rutas</option>
-                <option value="infraestructura">Daños en Infraestructura</option>
+                <option value="ciencia">Ciencia</option>
+                <option value="tecnologia">Tecnología</option>
+                <option value="arte">Arte y Cultura</option>
+                <option value="deporte">Deporte</option>
+                <option value="academico">Académico</option>
                 <option value="otro">Otro (Especificar...)</option>
               </select>
             </div>
             
-            <div class="form-group" id="reportOtherGroup" style="display: none;">
-              <label>Especifique el tipo de falla</label>
-              <input type="text" id="reportOtherInput" placeholder="Describa el tipo de falla">
+            <div class="form-group" id="talentOtherGroup" style="display: none;">
+              <label>Especifique categoría</label>
+              <input type="text" id="talentOtherInput" placeholder="Nombre">
             </div>
             
+            <textarea id="talentDescription" placeholder="Descripción y objetivos..." required></textarea>
+            <button type="submit" class="btn-publish">Publicar Proyecto</button>
+          </form>
+        </div>
+        <div class="talent-grid" id="talentGrid"></div>
+      </div>
+      
+      <!-- CHARLAS Y TALLERES SECTION -->
+      <div class="section" id="section-charlas">
+        <div class="talent-composer" id="charlasComposer" style="display: none; margin-bottom: 20px;">
+          <h3>🎙️ Programar Charla o Taller Educativo</h3>
+          <form class="post-form" onsubmit="submitCharla(event)">
+            <input type="text" id="charlaTitle" placeholder="Título de la Charla / Taller" required>
+            <input type="text" id="charlaFacilitator" placeholder="Facilitador o Ponente" required>
+            <input type="date" id="charlaDate" required>
+            
             <div class="form-group">
-              <label>Gravedad</label>
-              <select id="reportSeverity" required>
-                <option value="high">Crítica / Alta</option>
-                <option value="medium">Media / Parcial</option>
+              <label>Categoría</label>
+              <select id="charlaCategory" required onchange="checkCharlaOther(this)">
+                <option value="">Seleccione</option>
+                <option value="motivacional">Crecimiento Personal / Motivacional</option>
+                <option value="tecnologia">Tecnología e Inteligencia Artificial</option>
+                <option value="salud">Salud Mental y Bienestar</option>
+                <option value="ciencias">Ciencias e Investigación</option>
+                <option value="otro">Otro (Especificar...)</option>
               </select>
             </div>
-            <div class="form-group">
-              <label>Descripción detallada</label>
-              <textarea id="reportDescription" placeholder="Detalles de la falla, áreas afectadas..." required></textarea>
+            
+            <div class="form-group" id="charlaOtherGroup" style="display: none;">
+              <label>Especifique tema</label>
+              <input type="text" id="charlaOtherInput" placeholder="Tema">
             </div>
-            <button type="submit" class="btn-publish">Enviar Reporte</button>
+            
+            <textarea id="charlaDescription" placeholder="¿Qué se aprenderá?" required></textarea>
+            <button type="submit" class="btn-publish">Publicar Charla</button>
           </form>
         </div>
-        
-        <div class="infra-list-container" style="grid-column: 1 / -1;" id="reportListWrapper">
-          <h3>📊 Reportes Activos en el Municipio</h3>
-          <div id="reportsList"></div>
-        </div>
+        <div class="talent-grid" id="charlasGrid"></div>
       </div>
-    </div>
-    
-    <!-- TALENTO SECTION -->
-    <div class="section" id="section-talento">
-      <div class="talent-composer" id="talentComposer" style="display: none; margin-bottom: 20px;">
-        <h3>🎓 Compartir Proyecto o Talento</h3>
-        <form class="post-form" onsubmit="submitTalent(event)">
-          <input type="text" id="talentTitle" placeholder="Título del Proyecto" required>
-          
-          <div class="form-group">
-            <label>Categoría</label>
-            <select id="talentCategory" required onchange="checkTalentOther(this)">
-              <option value="">Seleccione</option>
-              <option value="ciencia">Ciencia</option>
-              <option value="tecnologia">Tecnología</option>
-              <option value="arte">Arte y Cultura</option>
-              <option value="deporte">Deporte</option>
-              <option value="academico">Académico</option>
-              <option value="otro">Otro (Especificar...)</option>
-            </select>
-          </div>
-          
-          <div class="form-group" id="talentOtherGroup" style="display: none;">
-            <label>Especifique la categoría</label>
-            <input type="text" id="talentOtherInput" placeholder="Nombre de la categoría">
-          </div>
-          
-          <textarea id="talentDescription" placeholder="Descripción y objetivos..." required></textarea>
-          <button type="submit" class="btn-publish">Publicar Proyecto</button>
-        </form>
-      </div>
-      <div class="talent-grid" id="talentGrid"></div>
-    </div>
-    
-    <!-- CHARLAS Y TALLERES SECTION -->
-    <div class="section" id="section-charlas">
-      <div class="talent-composer" id="charlasComposer" style="display: none; margin-bottom: 20px;">
-        <h3>🎙️ Programar Charla o Taller Educativo</h3>
-        <form class="post-form" onsubmit="submitCharla(event)">
-          <input type="text" id="charlaTitle" placeholder="Título de la Charla / Taller" required>
-          <input type="text" id="charlaFacilitator" placeholder="Facilitador o Ponente" required>
-          <input type="date" id="charlaDate" required>
-          
-          <div class="form-group">
-            <label>Categoría / Tema Principal</label>
-            <select id="charlaCategory" required onchange="checkCharlaOther(this)">
-              <option value="">Seleccione</option>
-              <option value="motivacional">Crecimiento Personal / Motivacional</option>
-              <option value="tecnologia">Tecnología e Inteligencia Artificial</option>
-              <option value="salud">Salud Mental y Bienestar</option>
-              <option value="ciencias">Ciencias e Investigación</option>
-              <option value="otro">Otro (Especificar...)</option>
-            </select>
-          </div>
-          
-          <div class="form-group" id="charlaOtherGroup" style="display: none;">
-            <label>Especifique el tema</label>
-            <input type="text" id="charlaOtherInput" placeholder="Tema de la charla">
-          </div>
-          
-          <textarea id="charlaDescription" placeholder="¿Qué se aprenderá en este espacio?" required></textarea>
-          <button type="submit" class="btn-publish">Publicar Charla</button>
-        </form>
-      </div>
-      <div class="talent-grid" id="charlasGrid"></div>
-    </div>
-    
-    <!-- EVENTOS SECTION -->
-    <div class="section" id="section-eventos">
-      <div class="event-composer" id="eventComposer" style="display: none; margin-bottom: 20px;">
-        <h3>📅 Publicar Evento o Competencia</h3>
-        <form class="post-form" onsubmit="submitEvent(event)">
-          <input type="text" id="eventTitle" placeholder="Nombre del Evento" required>
-          <input type="date" id="eventDate" required>
-          <input type="text" id="eventLocation" placeholder="Lugar o Institución" required>
-          <textarea id="eventDescription" placeholder="Detalles del evento..." required></textarea>
-          <button type="submit" class="btn-publish">Publicar Evento</button>
-        </form>
-      </div>
-      <div class="event-list" id="eventList"></div>
-    </div>
-    
-    <!-- MICROCONTENIDOS SECTION -->
-    <div class="section" id="section-microcontenidos">
-      <div class="talent-composer" id="microComposer" style="display: none; margin-bottom: 20px;">
-        <h3>🎬 Publicar Microcontenido Educativo</h3>
-        <form class="post-form" onsubmit="submitMicrocontent(event)">
-          <input type="text" id="microTitle" placeholder="Título del Contenido" required>
-          <textarea id="microDescription" placeholder="Breve descripción..." required></textarea>
-          <button type="submit" class="btn-publish">Publicar Microcontenido</button>
-        </form>
-      </div>
-      <div class="talent-grid" id="microcontentGrid"></div>
-    </div>
-
-    <!-- PANEL DE CONFIGURACIÓN ADMIN -->
-    <div class="section" id="section-admin-config">
-      <div style="display: flex; flex-direction: column; gap: 25px;">
-        
-        <div class="admin-card">
-          <h3>🔑 Modificar Códigos de Autorización (PINs)</h3>
-          <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 15px;">Cambia las claves que deben ingresar los usuarios para registrarse como Vocero o Profesor.</p>
-          <form class="post-form" onsubmit="updatePins(event)">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-              <div class="form-group">
-                <label>PIN para Estudiantes Voceros</label>
-                <input type="text" id="pinVoceroInput" required>
-              </div>
-              <div class="form-group">
-                <label>PIN para Profesores y Directores</label>
-                <input type="text" id="pinProfesorInput" required>
-              </div>
-            </div>
-            <button type="submit" class="btn-publish">Guardar Nuevos PINs</button>
+      
+      <!-- EVENTOS SECTION -->
+      <div class="section" id="section-eventos">
+        <div class="event-composer" id="eventComposer" style="display: none; margin-bottom: 20px;">
+          <h3>📅 Publicar Evento o Competencia</h3>
+          <form class="post-form" onsubmit="submitEvent(event)">
+            <input type="text" id="eventTitle" placeholder="Nombre del Evento" required>
+            <input type="date" id="eventDate" required>
+            <input type="text" id="eventLocation" placeholder="Lugar o Institución" required>
+            <textarea id="eventDescription" placeholder="Detalles del evento..." required></textarea>
+            <button type="submit" class="btn-publish">Publicar Evento</button>
           </form>
         </div>
-
-        <div class="admin-card">
-          <h3>👥 Cuentas de Usuarios Registrados</h3>
-          <p style="color: var(--text-muted); font-size: 14px;">Administra los usuarios inscritos en la red municipal.</p>
-          <div style="overflow-x: auto;">
-            <table class="user-table">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Correo</th>
-                  <th>Rol</th>
-                  <th>Colegio</th>
-                  <th>Acción</th>
-                </tr>
-              </thead>
-              <tbody id="userTableBody"></tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="admin-card">
-          <h3>🧹 Mantenimiento del Sistema</h3>
-          <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 15px;">Herramientas para reiniciar datos o borrar contenidos antiguos.</p>
-          <button class="btn-delete" style="padding: 12px 20px; font-weight: bold; width: 100%;" onclick="clearAllData()">⚠️ Reiniciar Base de Datos Local</button>
-        </div>
-
+        <div class="event-list" id="eventList"></div>
       </div>
+      
+      <!-- MICROCONTENIDOS SECTION -->
+      <div class="section" id="section-microcontenidos">
+        <div class="talent-composer" id="microComposer" style="display: none; margin-bottom: 20px;">
+          <h3>🎬 Publicar Microcontenido Educativo</h3>
+          <form class="post-form" onsubmit="submitMicrocontent(event)">
+            <input type="text" id="microTitle" placeholder="Título del Contenido" required>
+            <textarea id="microDescription" placeholder="Breve descripción..." required></textarea>
+            <button type="submit" class="btn-publish">Publicar Microcontenido</button>
+          </form>
+        </div>
+        <div class="talent-grid" id="microcontentGrid"></div>
+      </div>
+
+      <!-- PANEL DE CONFIGURACIÓN ADMIN -->
+      <div class="section" id="section-admin-config">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          
+          <div class="admin-card">
+            <h3>🔑 Modificar Códigos de Autorización (PINs)</h3>
+            <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 12px;">Cambia las claves que deben ingresar los usuarios para registrarse como Vocero o Profesor.</p>
+            <form class="post-form" onsubmit="updatePins(event)">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div class="form-group">
+                  <label>PIN Vocero</label>
+                  <input type="text" id="pinVoceroInput" required>
+                </div>
+                <div class="form-group">
+                  <label>PIN Profesor</label>
+                  <input type="text" id="pinProfesorInput" required>
+                </div>
+              </div>
+              <button type="submit" class="btn-publish">Guardar Nuevos PINs</button>
+            </form>
+          </div>
+
+          <div class="admin-card">
+            <h3>👥 Cuentas de Usuarios Registrados</h3>
+            <div style="overflow-x: auto;">
+              <table class="user-table">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Rol</th>
+                    <th>Colegio</th>
+                    <th>Acción</th>
+                  </tr>
+                </thead>
+                <tbody id="userTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <h3>🧹 Mantenimiento del Sistema</h3>
+            <button class="btn-delete" style="padding: 10px 16px; font-weight: bold; width: 100%;" onclick="clearAllData()">⚠️ Reiniciar Base de Datos Local</button>
+          </div>
+
+        </div>
+      </div>
+      
     </div>
-    
   </div>
 </div>
 
@@ -1533,8 +1346,8 @@ function showRoleInfo() {
   
   const info = {
     'estudiante': '👨‍🎓 <b>Estudiante:</b> Acceso libre de lectura, interacciones y visualización.',
-    'vocero': '🎤 <b>Estudiante Vocero:</b> Requiere el PIN de vocero. Permite publicar publicaciones y reportes.',
-    'profesor': '👨‍🏫 <b>Profesor / Director:</b> Requiere el PIN de docente. Permite publicar publicaciones multimedia y gestión total.'
+    'vocero': '🎤 <b>Estudiante Vocero:</b> Requiere PIN. Permite publicar publicaciones y reportes.',
+    'profesor': '👨‍🏫 <b>Profesor / Director:</b> Requiere PIN de docente. Permite gestión total.'
   };
   infoBox.style.display = 'block';
   infoBox.innerHTML = info[role];
@@ -1550,7 +1363,7 @@ function searchSchool() {
   
   resultsDiv.innerHTML = filtered.map(s => `
     <div class="search-item" onclick="selectSchool('${s.name}')">
-      <strong>${s.name}</strong><small>${s.municipio}</small>
+      <strong>${s.name}</strong><br><small>${s.municipio}</small>
     </div>`).join('');
   resultsDiv.classList.add('show');
 }
@@ -1577,12 +1390,12 @@ function register(e) {
   }
   
   if (role === 'vocero' && authCode !== CODIGOS_AUTORIZACION.vocero) {
-    showNotification('⛔ CÓDIGO INCORRECTO: PIN de Vocero inválido.', 'error');
+    showNotification('⛔ PIN de Vocero incorrecto.', 'error');
     return;
   }
   
   if (role === 'profesor' && authCode !== CODIGOS_AUTORIZACION.profesor) {
-    showNotification('⛔ CÓDIGO INCORRECTO: PIN de Profesor inválido.', 'error');
+    showNotification('⛔ PIN de Profesor incorrecto.', 'error');
     return;
   }
   
@@ -1636,13 +1449,14 @@ function logout() {
 
 function setupUserInterface() {
   document.getElementById('userName').textContent = currentUser.name;
+  document.getElementById('sidebarAvatar').textContent = currentUser.name.charAt(0).toUpperCase();
   const roleBadge = document.getElementById('userRoleBadge');
   const adminTab = document.getElementById('adminConfigTab');
   
   if (currentUser.role === 'superadmin') {
     roleBadge.textContent = 'SUPER ADMIN';
     roleBadge.className = 'role-badge superadmin';
-    adminTab.style.display = 'block';
+    adminTab.style.display = 'flex';
     
     document.getElementById('pinVoceroInput').value = CODIGOS_AUTORIZACION.vocero;
     document.getElementById('pinProfesorInput').value = CODIGOS_AUTORIZACION.profesor;
@@ -1663,15 +1477,25 @@ function setupUserInterface() {
   document.getElementById('charlasComposer').style.display = !isStudent ? 'block' : 'none';
   document.getElementById('eventComposer').style.display = !isStudent ? 'block' : 'none';
   document.getElementById('microComposer').style.display = !isStudent ? 'block' : 'none';
-  
   document.getElementById('mediaUploadWrapper').style.display = canPublishMedia ? 'block' : 'none';
 }
 
 function showSection(sectionId, btn) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-icon-btn').forEach(t => t.classList.remove('active'));
   document.getElementById('section-' + sectionId).classList.add('active');
   btn.classList.add('active');
+  
+  const titles = {
+    'feed': 'Feed Principal',
+    'infraestructura': 'Gestión de Infraestructura',
+    'talento': 'Rutas de Talento y Proyectos',
+    'charlas': 'Charlas y Talleres Educativos',
+    'eventos': 'Calendario de Eventos',
+    'microcontenidos': 'Microcontenidos Educativos',
+    'admin-config': 'Configuración de Administrador'
+  };
+  document.getElementById('pageTitleHeader').textContent = titles[sectionId] || 'Panel';
 }
 
 function selectPostType(type, btn) {
@@ -1683,7 +1507,6 @@ function selectPostType(type, btn) {
 function previewMedia(e) {
   const file = e.target.files[0];
   if (!file) return;
-  
   document.getElementById('fileNameDisplay').textContent = file.name;
   const reader = new FileReader();
   reader.onload = function(uploadEvent) {
@@ -1693,9 +1516,9 @@ function previewMedia(e) {
     };
     const previewDiv = document.getElementById('mediaPreviewContainer');
     if (temporaryMediaData.type === 'video') {
-      previewDiv.innerHTML = `<video src="${temporaryMediaData.url}" controls style="width:150px; border-radius:4px;"></video>`;
+      previewDiv.innerHTML = `<video src="${temporaryMediaData.url}" controls style="width:120px; border-radius:8px;"></video>`;
     } else {
-      previewDiv.innerHTML = `<img src="${temporaryMediaData.url}" style="width:150px; border-radius:4px;" />`;
+      previewDiv.innerHTML = `<img src="${temporaryMediaData.url}" style="width:120px; border-radius:8px;" />`;
     }
   };
   reader.readAsDataURL(file);
@@ -1726,7 +1549,7 @@ function publishPost(e) {
   localStorage.setItem('posts', JSON.stringify(posts));
   temporaryMediaData = null;
   document.getElementById('mediaPreviewContainer').innerHTML = '';
-  document.getElementById('fileNameDisplay').textContent = 'Haz clic para seleccionar un archivo multimedia';
+  document.getElementById('fileNameDisplay').textContent = 'Haz clic para seleccionar archivo';
   renderPosts();
   e.target.reset();
   showNotification('Publicación creada con éxito');
@@ -1735,7 +1558,6 @@ function publishPost(e) {
 function toggleLike(postId) {
   const post = posts.find(p => p.id === postId);
   if (!post) return;
-  
   const index = post.likedBy.indexOf(currentUser.email);
   if (index > -1) {
     post.likedBy.splice(index, 1);
@@ -1744,7 +1566,6 @@ function toggleLike(postId) {
     post.likedBy.push(currentUser.email);
     post.likes++;
   }
-  
   localStorage.setItem('posts', JSON.stringify(posts));
   renderPosts();
 }
@@ -1774,9 +1595,7 @@ function checkReportOther(select) {
 function submitReport(e) {
   e.preventDefault();
   let typeVal = document.getElementById('reportType').value;
-  if (typeVal === 'otro') {
-    typeVal = document.getElementById('reportOtherInput').value.trim() || 'Otro';
-  }
+  if (typeVal === 'otro') typeVal = document.getElementById('reportOtherInput').value.trim() || 'Otro';
   
   reports.unshift({
     id: Date.now(),
@@ -1791,11 +1610,11 @@ function submitReport(e) {
   renderReports();
   e.target.reset();
   document.getElementById('reportOtherGroup').style.display = 'none';
-  showNotification('Reporte de infraestructura enviado');
+  showNotification('Reporte enviado');
 }
 
 function deleteReport(id) {
-  if (confirm('¿Eliminar este reporte?')) {
+  if (confirm('¿Eliminar reporte?')) {
     reports = reports.filter(r => r.id !== id);
     localStorage.setItem('reports', JSON.stringify(reports));
     renderReports();
@@ -1819,9 +1638,7 @@ function checkTalentOther(select) {
 function submitTalent(e) {
   e.preventDefault();
   let catVal = document.getElementById('talentCategory').value;
-  if (catVal === 'otro') {
-    catVal = document.getElementById('talentOtherInput').value.trim() || 'Otro';
-  }
+  if (catVal === 'otro') catVal = document.getElementById('talentOtherInput').value.trim() || 'Otro';
   
   talents.unshift({
     id: Date.now(),
@@ -1835,11 +1652,11 @@ function submitTalent(e) {
   renderTalents();
   e.target.reset();
   document.getElementById('talentOtherGroup').style.display = 'none';
-  showNotification('Proyecto compartido con éxito');
+  showNotification('Proyecto compartido');
 }
 
 function deleteTalent(id) {
-  if (confirm('¿Eliminar este proyecto?')) {
+  if (confirm('¿Eliminar proyecto?')) {
     talents = talents.filter(t => t.id !== id);
     localStorage.setItem('talents', JSON.stringify(talents));
     renderTalents();
@@ -1863,9 +1680,7 @@ function checkCharlaOther(select) {
 function submitCharla(e) {
   e.preventDefault();
   let catVal = document.getElementById('charlaCategory').value;
-  if (catVal === 'otro') {
-    catVal = document.getElementById('charlaOtherInput').value.trim() || 'Otro';
-  }
+  if (catVal === 'otro') catVal = document.getElementById('charlaOtherInput').value.trim() || 'Otro';
   
   charlas.unshift({
     id: Date.now(),
@@ -1880,11 +1695,11 @@ function submitCharla(e) {
   renderCharlas();
   e.target.reset();
   document.getElementById('charlaOtherGroup').style.display = 'none';
-  showNotification('Charla programada con éxito');
+  showNotification('Charla programada');
 }
 
 function deleteCharla(id) {
-  if (confirm('¿Eliminar esta charla?')) {
+  if (confirm('¿Eliminar charla?')) {
     charlas = charlas.filter(c => c.id !== id);
     localStorage.setItem('charlas', JSON.stringify(charlas));
     renderCharlas();
@@ -1909,7 +1724,7 @@ function submitEvent(e) {
 }
 
 function deleteEvent(id) {
-  if (confirm('¿Eliminar este evento?')) {
+  if (confirm('¿Eliminar evento?')) {
     events = events.filter(ev => ev.id !== id);
     localStorage.setItem('events', JSON.stringify(events));
     renderEvents();
@@ -1932,7 +1747,7 @@ function submitMicrocontent(e) {
 }
 
 function deleteMicro(id) {
-  if (confirm('¿Eliminar este microcontenido?')) {
+  if (confirm('¿Eliminar microcontenido?')) {
     microcontents = microcontents.filter(m => m.id !== id);
     localStorage.setItem('microcontents', JSON.stringify(microcontents));
     renderMicrocontents();
@@ -1944,25 +1759,22 @@ function updatePins(e) {
   e.preventDefault();
   const newVoceroPin = document.getElementById('pinVoceroInput').value.trim();
   const newProfePin = document.getElementById('pinProfesorInput').value.trim();
-  
   if (!newVoceroPin || !newProfePin) {
     showNotification('Los PINs no pueden estar vacíos', 'error');
     return;
   }
-  
   CODIGOS_AUTORIZACION.vocero = newVoceroPin;
   CODIGOS_AUTORIZACION.profesor = newProfePin;
   localStorage.setItem('CODIGOS_AUTORIZACION', JSON.stringify(CODIGOS_AUTORIZACION));
-  showNotification('¡PINs de seguridad actualizados con éxito!');
+  showNotification('¡PINs actualizados con éxito!');
 }
 
 function renderAdminUserTable() {
   const tbody = document.getElementById('userTableBody');
   if (users.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; color:var(--text-muted);">No hay usuarios registrados aún.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; color:var(--text-muted);">No hay usuarios registrados.</td></tr>';
     return;
   }
-  
   tbody.innerHTML = users.map((u, index) => `
     <tr>
       <td><strong>${u.name}</strong></td>
@@ -1975,7 +1787,7 @@ function renderAdminUserTable() {
 }
 
 function deleteUserByAdmin(index) {
-  if (confirm(`¿Estás segura de eliminar al usuario ${users[index].name}?`)) {
+  if (confirm(`¿Eliminar usuario ${users[index].name}?`)) {
     users.splice(index, 1);
     localStorage.setItem('users', JSON.stringify(users));
     renderAdminUserTable();
@@ -1985,14 +1797,9 @@ function deleteUserByAdmin(index) {
 }
 
 function clearAllData() {
-  if (confirm('⚠️ ¿Estás segura de borrar todas las publicaciones, reportes y eventos de la base de datos?')) {
-    localStorage.removeItem('posts');
-    localStorage.removeItem('reports');
-    localStorage.removeItem('talents');
-    localStorage.removeItem('charlas');
-    localStorage.removeItem('events');
-    localStorage.removeItem('microcontents');
-    posts = []; reports = []; talents = []; charlas = []; events = []; microcontents = [];
+  if (confirm('⚠️ ¿Borrar todas las publicaciones y reportes?')) {
+    localStorage.clear();
+    posts = []; reports = []; talents = []; charlas = []; events = []; microcontents = []; users = [];
     renderAll();
     showNotification('Base de datos reiniciada');
   }
@@ -2011,23 +1818,16 @@ function renderAll() {
 function renderPosts() {
   const container = document.getElementById('postsFeed');
   if (posts.length === 0) {
-    container.innerHTML = '<p style="color:var(--text-muted); text-align:center; padding:20px; background:var(--card-bg); border-radius:12px; border:1px solid var(--border-color);">No hay publicaciones en la red aún.</p>';
+    container.innerHTML = '<p style="color:var(--text-muted); text-align:center; padding:30px; background:white; border-radius:20px; border:1px solid var(--border-color);">No hay publicaciones en la red aún.</p>';
     return;
   }
-  
   container.innerHTML = posts.map(p => {
     const isLiked = p.likedBy.includes(currentUser.email);
     const canDelete = currentUser.role === 'superadmin' || p.authorEmail === currentUser.email;
-    
     let mediaHTML = '';
     if (p.media) {
-      if (p.media.type === 'video') {
-        mediaHTML = `<div class="post-media-container"><video src="${p.media.url}" controls></video></div>`;
-      } else {
-        mediaHTML = `<div class="post-media-container"><img src="${p.media.url}" alt="Media"></div>`;
-      }
+      mediaHTML = p.media.type === 'video' ? `<div class="post-media-container"><video src="${p.media.url}" controls></video></div>` : `<div class="post-media-container"><img src="${p.media.url}" alt="Media"></div>`;
     }
-    
     return `
       <div class="post">
         <div class="post-header">
@@ -2040,7 +1840,7 @@ function renderPosts() {
           </div>
           <span class="post-type-badge">${p.type}</span>
         </div>
-        <h3 style="color:var(--text-main); margin-bottom:8px;">${p.title}</h3>
+        <h3 style="font-size:15px; margin-bottom:6px; color:var(--text-main);">${p.title}</h3>
         <div class="post-content">${p.content}</div>
         ${mediaHTML}
         <div class="post-tags">
@@ -2050,7 +1850,7 @@ function renderPosts() {
           <button class="post-action ${isLiked ? 'liked' : ''}" onclick="toggleLike(${p.id})">
             👍 Me gusta (${p.likes})
           </button>
-          ${canDelete ? `<button class="btn-delete" onclick="deletePost(${p.id})">🗑️ Eliminar</button>` : ''}
+          ${canDelete ? `<button class="btn-delete" onclick="deletePost(${p.id})">Eliminar</button>` : ''}
         </div>
       </div>
     `;
@@ -2061,7 +1861,7 @@ function renderReports() {
   const container = document.getElementById('reportsList');
   document.getElementById('statReports').textContent = reports.length;
   if (reports.length === 0) {
-    container.innerHTML = '<p style="color:var(--text-muted); text-align:center;">No hay reportes activos registrados.</p>';
+    container.innerHTML = '<p style="color:var(--text-muted); text-align:center;">No hay reportes activos.</p>';
     return;
   }
   container.innerHTML = reports.map(r => {
@@ -2070,12 +1870,12 @@ function renderReports() {
       <div class="report-item ${r.severity}">
         <div class="report-header">
           <h4>[${r.type.toUpperCase()}] - ${r.school}</h4>
-          <span style="font-weight:bold; font-size:12px; color:var(--accent-gold);">Gravedad: ${r.severity.toUpperCase()}</span>
+          <span>Gravedad: ${r.severity.toUpperCase()}</span>
         </div>
         <div class="report-description">${r.description}</div>
         <div class="report-footer">
           <span>Reportado por: ${r.author} (${r.date})</span>
-          ${canDelete ? `<button class="btn-delete" onclick="deleteReport(${r.id})">🗑️ Eliminar</button>` : ''}
+          ${canDelete ? `<button class="btn-delete" onclick="deleteReport(${r.id})">Eliminar</button>` : ''}
         </div>
       </div>
     `;
@@ -2099,9 +1899,9 @@ function renderTalents() {
         </div>
         <div class="talent-card-body">
           <p>${t.description}</p>
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
-            <small style="color:var(--text-muted);">Autor: ${t.author}</small>
-            ${canDelete ? `<button class="btn-delete" onclick="deleteTalent(${t.id})">🗑️ Eliminar</button>` : ''}
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <small style="color:var(--text-muted);">Por: ${t.author}</small>
+            ${canDelete ? `<button class="btn-delete" onclick="deleteTalent(${t.id})">Eliminar</button>` : ''}
           </div>
         </div>
       </div>
@@ -2113,7 +1913,7 @@ function renderCharlas() {
   const container = document.getElementById('charlasGrid');
   document.getElementById('statCharlas').textContent = charlas.length;
   if (charlas.length === 0) {
-    container.innerHTML = '<p style="color:var(--text-muted); grid-column: 1/-1; text-align:center;">No hay charlas o talleres programados.</p>';
+    container.innerHTML = '<p style="color:var(--text-muted); grid-column: 1/-1; text-align:center;">No hay charlas programadas.</p>';
     return;
   }
   container.innerHTML = charlas.map(c => {
@@ -2127,9 +1927,9 @@ function renderCharlas() {
         <div class="talent-card-body">
           <p><strong>📅 Fecha:</strong> ${c.date}</p>
           <p>${c.description}</p>
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
             <small style="color:var(--text-muted);">Colegio: ${c.school}</small>
-            ${canDelete ? `<button class="btn-delete" onclick="deleteCharla(${c.id})">🗑️ Eliminar</button>` : ''}
+            ${canDelete ? `<button class="btn-delete" onclick="deleteCharla(${c.id})">Eliminar</button>` : ''}
           </div>
         </div>
       </div>
@@ -2158,15 +1958,12 @@ function renderEvents() {
           <span class="day">${day}</span>
           <span class="month">${month}</span>
         </div>
-        <div class="event-info">
+        <div class="event-info" style="flex:1;">
           <h3>${ev.title}</h3>
           <p>${ev.description}</p>
-          <div class="event-details">
-            <span>📍 Lugar: ${ev.location}</span>
-            <span>🏫 Institución: ${ev.school}</span>
-          </div>
-          ${canDelete ? `<button class="btn-delete" onclick="deleteEvent(${ev.id})" style="margin-top:10px;">🗑️ Eliminar</button>` : ''}
+          <small style="color:var(--text-muted);">📍 ${ev.location} | 🏫 ${ev.school}</small>
         </div>
+        ${canDelete ? `<button class="btn-delete" onclick="deleteEvent(${ev.id})">Eliminar</button>` : ''}
       </div>
     `;
   }).join('');
@@ -2175,22 +1972,22 @@ function renderEvents() {
 function renderMicrocontents() {
   const container = document.getElementById('microcontentGrid');
   if (microcontents.length === 0) {
-    container.innerHTML = '<p style="color:var(--text-muted); grid-column: 1/-1; text-align:center;">No hay microcontenidos educativos.</p>';
+    container.innerHTML = '<p style="color:var(--text-muted); grid-column: 1/-1; text-align:center;">No hay microcontenidos.</p>';
     return;
   }
   container.innerHTML = microcontents.map(m => {
-    const canGrade = currentUser.role === 'superadmin';
+    const canDelete = currentUser.role === 'superadmin';
     return `
       <div class="talent-card">
         <div class="talent-card-header">
           <h3>${m.title}</h3>
-          <p>Microcontenido Educativo</p>
+          <p>Microcontenido</p>
         </div>
         <div class="talent-card-body">
           <p>${m.description}</p>
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
             <small style="color:var(--text-muted);">Por: ${m.author}</small>
-            ${canGrade ? `<button class="btn-delete" onclick="deleteMicro(${m.id})">🗑️ Eliminar</button>` : ''}
+            ${canDelete ? `<button class="btn-delete" onclick="deleteMicro(${m.id})">Eliminar</button>` : ''}
           </div>
         </div>
       </div>
@@ -2206,9 +2003,7 @@ function showNotification(text, type = 'success') {
   const notif = document.getElementById('notification');
   notif.textContent = text;
   notif.className = 'notification show ' + (type === 'error' ? 'error' : '');
-  setTimeout(() => {
-    notif.classList.remove('show');
-  }, 3000);
+  setTimeout(() => notif.classList.remove('show'), 3000);
 }
 </script>
 </body>
