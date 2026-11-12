@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Red Municipal de Colaboración Estudiantil</title>
 <style>
+:root {
+  --primary-dark: #0f1923;
+  --card-bg: #16222f;
+  --accent-gold: #ffcc00;
+  --accent-blue: #00d2ff;
+  --text-main: #f0f4f8;
+  --text-muted: #8b9bb4;
+  --border-color: #26384d;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,16 +22,20 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f5f5f5;
-  color: #333;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--primary-dark);
+  color: var(--text-main);
   line-height: 1.6;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(0, 210, 255, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(255, 204, 0, 0.05) 0%, transparent 40%);
+  min-height: 100vh;
 }
 
 /* AUTH SCREEN */
 .auth-screen {
   min-height: 100vh;
-  background: linear-gradient(135deg, #1e3a5f 0%, #2c4f7c 100%);
+  background: linear-gradient(135deg, #090e17 0%, #16222f 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,10 +43,11 @@ body {
 }
 
 .auth-container {
-  background: white;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5), 0 0 20px rgba(0, 210, 255, 0.1);
   max-width: 500px;
   width: 100%;
 }
@@ -45,25 +60,27 @@ body {
 .auth-logo {
   width: 80px;
   height: 80px;
-  background: #c9a961;
+  background: linear-gradient(135deg, var(--accent-gold), #ff9900);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 36px;
-  font-weight: bold;
-  color: white;
+  font-size: 32px;
+  font-weight: 900;
+  color: #0f1923;
   margin: 0 auto 20px;
+  box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
 }
 
 .auth-header h1 {
-  color: #1e3a5f;
+  color: var(--text-main);
   font-size: 24px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
 }
 
 .auth-header p {
-  color: #666;
+  color: var(--text-muted);
   font-size: 14px;
 }
 
@@ -71,7 +88,7 @@ body {
   display: flex;
   gap: 10px;
   margin-bottom: 30px;
-  border-bottom: 2px solid #e0e0e0;
+  border-bottom: 2px solid var(--border-color);
 }
 
 .auth-tab {
@@ -79,23 +96,22 @@ body {
   padding: 12px;
   background: none;
   border: none;
-  color: #666;
+  color: var(--text-muted);
   font-size: 15px;
   cursor: pointer;
   transition: all 0.3s;
   border-bottom: 3px solid transparent;
   margin-bottom: -2px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .auth-tab:hover {
-  color: #1e3a5f;
+  color: var(--text-main);
 }
 
 .auth-tab.active {
-  color: #1e3a5f;
-  border-bottom-color: #c9a961;
-  font-weight: 600;
+  color: var(--accent-gold);
+  border-bottom-color: var(--accent-gold);
 }
 
 .auth-form {
@@ -114,7 +130,7 @@ body {
 }
 
 .form-group label {
-  color: #1e3a5f;
+  color: var(--text-main);
   font-weight: 600;
   margin-bottom: 8px;
   font-size: 14px;
@@ -123,19 +139,22 @@ body {
 .form-group input,
 .form-group select,
 .form-group textarea {
-  padding: 12px;
-  border: 2px solid #e0e0e0;
-  border-radius: 6px;
+  padding: 12px 15px;
+  background: #0b121a;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-main);
   font-size: 14px;
   font-family: inherit;
-  transition: border-color 0.3s;
+  transition: all 0.3s;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #c9a961;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
 }
 
 .search-container {
@@ -144,10 +163,6 @@ body {
 
 .search-input {
   width: 100%;
-  padding: 12px;
-  border: 2px solid #e0e0e0;
-  border-radius: 6px;
-  font-size: 14px;
 }
 
 .search-results {
@@ -155,14 +170,15 @@ body {
   top: 100%;
   left: 0;
   right: 0;
-  background: white;
-  border: 2px solid #e0e0e0;
-  border-radius: 6px;
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
   max-height: 200px;
   overflow-y: auto;
   z-index: 100;
   display: none;
   margin-top: 5px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
 
 .search-results.show {
@@ -172,56 +188,53 @@ body {
 .search-item {
   padding: 12px;
   cursor: pointer;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid var(--border-color);
   transition: background 0.2s;
 }
 
 .search-item:hover {
-  background: #f9f9f9;
+  background: rgba(0, 210, 255, 0.1);
 }
 
 .search-item strong {
-  color: #1e3a5f;
+  color: var(--accent-blue);
   display: block;
   margin-bottom: 3px;
 }
 
 .search-item small {
-  color: #999;
+  color: var(--text-muted);
   font-size: 12px;
 }
 
 .btn-auth {
-  background: #1e3a5f;
-  color: white;
+  background: linear-gradient(135deg, var(--accent-gold), #e6b800);
+  color: #0f1923;
   padding: 14px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.3s;
   margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 5px 15px rgba(255, 204, 0, 0.2);
 }
 
 .btn-auth:hover {
-  background: #2c4f7c;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(30, 58, 95, 0.3);
+  box-shadow: 0 8px 20px rgba(255, 204, 0, 0.4);
 }
 
 .role-info {
-  background: #e8f0f7;
-  border-left: 4px solid #1e3a5f;
+  background: rgba(0, 210, 255, 0.08);
+  border-left: 4px solid var(--accent-blue);
   padding: 15px;
-  border-radius: 5px;
+  border-radius: 6px;
   font-size: 13px;
-  color: #1e3a5f;
-}
-
-.role-info strong {
-  display: block;
-  margin-bottom: 5px;
+  color: var(--text-main);
 }
 
 /* MAIN APP */
@@ -235,10 +248,11 @@ body {
 
 /* HEADER */
 .header {
-  background: linear-gradient(135deg, #1e3a5f 0%, #2c4f7c 100%);
+  background: rgba(15, 25, 35, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
   color: white;
   padding: 15px 30px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -261,23 +275,26 @@ body {
 .logo-icon {
   width: 45px;
   height: 45px;
-  background: #c9a961;
-  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-gold), #ff9900);
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 900;
+  color: #0f1923;
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
 }
 
 .logo-text h1 {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 .logo-text p {
   font-size: 11px;
-  opacity: 0.8;
+  color: var(--text-muted);
 }
 
 .header-right {
@@ -298,52 +315,59 @@ body {
 .user-info .role-badge {
   display: inline-block;
   padding: 3px 10px;
-  border-radius: 12px;
-  font-size: 11px;
-  font-weight: 600;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
   margin-top: 3px;
+  text-transform: uppercase;
 }
 
 .role-badge.estudiante {
-  background: #e8f5e9;
-  color: #2e7d32;
+  background: rgba(46, 125, 50, 0.2);
+  color: #4caf50;
+  border: 1px solid rgba(76, 175, 80, 0.3);
 }
 
 .role-badge.vocero {
-  background: #fff3e0;
-  color: #f57c00;
+  background: rgba(245, 124, 0, 0.2);
+  color: #ffa726;
+  border: 1px solid rgba(255, 167, 38, 0.3);
 }
 
 .role-badge.profesor {
-  background: #e3f2fd;
-  color: #1565c0;
+  background: rgba(21, 101, 192, 0.2);
+  color: var(--accent-blue);
+  border: 1px solid rgba(0, 210, 255, 0.3);
 }
 
 .role-badge.superadmin {
-  background: #fce4ec;
-  color: #c2185b;
+  background: rgba(194, 24, 91, 0.2);
+  color: #ff4081;
+  border: 1px solid rgba(255, 64, 129, 0.3);
 }
 
 .btn-logout {
-  background: rgba(255,255,255,0.1);
-  color: white;
+  background: rgba(255,255,255,0.05);
+  color: var(--text-main);
   padding: 8px 16px;
-  border: 1px solid rgba(255,255,255,0.3);
-  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
   font-size: 13px;
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .btn-logout:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 64, 129, 0.2);
+  border-color: #ff4081;
+  color: #ff4081;
 }
 
 /* NAVIGATION */
 .nav-tabs {
-  background: white;
+  background: #121c26;
+  border-bottom: 1px solid var(--border-color);
   padding: 0 30px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   overflow-x: auto;
 }
 
@@ -355,27 +379,27 @@ body {
 }
 
 .nav-tab {
-  padding: 18px 20px;
+  padding: 16px 20px;
   background: none;
   border: none;
-  color: #666;
+  color: var(--text-muted);
   font-size: 14px;
   cursor: pointer;
   transition: all 0.3s;
   border-bottom: 3px solid transparent;
-  font-weight: 500;
+  font-weight: 600;
   white-space: nowrap;
 }
 
 .nav-tab:hover {
-  color: #1e3a5f;
-  background: #f9f9f9;
+  color: var(--text-main);
+  background: rgba(255,255,255,0.02);
 }
 
 .nav-tab.active {
-  color: #1e3a5f;
-  border-bottom-color: #c9a961;
-  font-weight: 600;
+  color: var(--accent-blue);
+  border-bottom-color: var(--accent-blue);
+  background: rgba(0, 210, 255, 0.05);
 }
 
 /* MAIN CONTENT */
@@ -395,63 +419,69 @@ body {
 
 /* MOTIVATIONAL BANNER */
 .motivation-banner {
-  background: linear-gradient(135deg, #fbf7ee 0%, #f3e9d2 100%);
-  border: 1px solid #e3d2ab;
+  background: linear-gradient(135deg, rgba(22, 34, 47, 0.9), rgba(15, 25, 35, 0.9));
+  border: 1px solid var(--border-color);
+  border-left: 5px solid var(--accent-gold);
   padding: 20px 25px;
-  border-radius: 10px;
+  border-radius: 12px;
   margin-bottom: 25px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .motivation-content h4 {
-  color: #8c7134;
-  font-size: 13px;
+  color: var(--accent-gold);
+  font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 5px;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
 }
 
 .motivation-content p {
-  color: #3b3017;
+  color: var(--text-main);
   font-size: 15px;
   font-weight: 500;
   font-style: italic;
 }
 
 .btn-next-quote {
-  background: #c9a961;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
+  background: rgba(255, 204, 0, 0.1);
+  color: var(--accent-gold);
+  border: 1px solid rgba(255, 204, 0, 0.3);
+  padding: 8px 14px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 12px;
-  transition: background 0.2s;
+  font-weight: 600;
+  transition: all 0.3s;
   white-space: nowrap;
   margin-left: 15px;
 }
 
 .btn-next-quote:hover {
-  background: #b89850;
+  background: var(--accent-gold);
+  color: #0f1923;
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
 }
 
 /* PERMISSION NOTICE */
 .permission-notice {
-  background: #fff3e0;
+  background: rgba(255, 152, 0, 0.1);
   border-left: 4px solid #ff9800;
   padding: 15px 20px;
-  border-radius: 5px;
+  border-radius: 8px;
   margin-bottom: 20px;
   font-size: 14px;
-  color: #e65100;
+  color: #ffb74d;
+  border: 1px solid rgba(255, 152, 0, 0.2);
 }
 
 .permission-notice strong {
   display: block;
   margin-bottom: 5px;
+  color: #ff9800;
 }
 
 /* FEED DE NOTICIAS */
@@ -468,16 +498,20 @@ body {
 }
 
 .post-composer, .talent-composer, .event-composer, .admin-card {
-  background: white;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
 .post-composer h3, .talent-composer h3, .event-composer h3, .admin-card h3 {
-  color: #1e3a5f;
+  color: var(--text-main);
   margin-bottom: 15px;
   font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .post-type-selector {
@@ -489,23 +523,27 @@ body {
 
 .post-type-btn {
   padding: 10px 18px;
-  background: #f5f5f5;
-  border: 2px solid #e0e0e0;
-  border-radius: 6px;
+  background: #0b121a;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-muted);
   font-size: 13px;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .post-type-btn:hover {
-  background: #e8f0f7;
-  border-color: #1e3a5f;
+  background: rgba(0, 210, 255, 0.05);
+  color: var(--text-main);
+  border-color: var(--accent-blue);
 }
 
 .post-type-btn.active {
-  background: #1e3a5f;
-  color: white;
-  border-color: #1e3a5f;
+  background: var(--accent-blue);
+  color: #0f1923;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
 }
 
 .post-form {
@@ -516,8 +554,10 @@ body {
 
 .post-form textarea {
   padding: 15px;
-  border: 2px solid #e0e0e0;
-  border-radius: 6px;
+  background: #0b121a;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-main);
   font-size: 14px;
   resize: vertical;
   min-height: 100px;
@@ -526,37 +566,39 @@ body {
 
 .post-form textarea:focus {
   outline: none;
-  border-color: #c9a961;
+  border-color: var(--accent-blue);
 }
 
 .post-form input,
 .post-form select {
   padding: 12px;
-  border: 2px solid #e0e0e0;
-  border-radius: 6px;
+  background: #0b121a;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-main);
   font-size: 14px;
 }
 
 .post-form input:focus,
 .post-form select:focus {
   outline: none;
-  border-color: #c9a961;
+  border-color: var(--accent-blue);
 }
 
 .file-upload {
-  border: 2px dashed #e0e0e0;
+  border: 2px dashed var(--border-color);
   padding: 20px;
   text-align: center;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s;
   display: block;
-  background: #fafafa;
+  background: #0b121a;
 }
 
 .file-upload:hover {
-  border-color: #c9a961;
-  background: #f5f5f5;
+  border-color: var(--accent-blue);
+  background: rgba(0, 210, 255, 0.02);
 }
 
 .file-upload input[type="file"] {
@@ -564,41 +606,51 @@ body {
 }
 
 .file-upload-label {
-  color: #666;
+  color: var(--text-muted);
   font-size: 13px;
 }
 
 .file-upload-label strong {
-  color: #1e3a5f;
+  color: var(--accent-blue);
   display: block;
   margin-bottom: 3px;
 }
 
 .btn-publish {
-  background: #c9a961;
-  color: white;
+  background: linear-gradient(135deg, var(--accent-blue), #0099cc);
+  color: #0f1923;
   padding: 14px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 5px 15px rgba(0, 210, 255, 0.2);
 }
 
 .btn-publish:hover {
-  background: #b89850;
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 210, 255, 0.4);
 }
 
 /* POSTS */
 .post {
-  background: white;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
   margin-bottom: 15px;
   position: relative;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.post:hover {
+  border-color: rgba(0, 210, 255, 0.3);
+  transform: translateY(-2px);
 }
 
 .post-header {
@@ -617,39 +669,41 @@ body {
 .post-avatar {
   width: 45px;
   height: 45px;
-  background: #1e3a5f;
-  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-blue), #005580);
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 16px;
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
 }
 
 .post-author-info h4 {
-  color: #1e3a5f;
+  color: var(--text-main);
   font-size: 15px;
   margin-bottom: 3px;
 }
 
 .post-author-info p {
-  color: #999;
+  color: var(--text-muted);
   font-size: 12px;
 }
 
 .post-type-badge {
-  background: #c9a961;
-  color: white;
+  background: rgba(255, 204, 0, 0.1);
+  color: var(--accent-gold);
+  border: 1px solid rgba(255, 204, 0, 0.3);
   padding: 5px 12px;
-  border-radius: 15px;
+  border-radius: 20px;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
 .post-content {
-  color: #333;
+  color: var(--text-main);
   font-size: 15px;
   line-height: 1.7;
   margin-bottom: 15px;
@@ -664,6 +718,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid var(--border-color);
 }
 
 .post-media-container img, .post-media-container video {
@@ -681,11 +736,13 @@ body {
 }
 
 .post-tag {
-  background: #f0f0f0;
-  color: #1e3a5f;
+  background: #0b121a;
+  color: var(--accent-blue);
+  border: 1px solid var(--border-color);
   padding: 5px 12px;
   border-radius: 15px;
   font-size: 12px;
+  font-weight: 500;
 }
 
 .post-actions {
@@ -693,43 +750,45 @@ body {
   justify-content: space-between;
   align-items: center;
   padding-top: 15px;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid var(--border-color);
 }
 
 .post-action {
   background: none;
   border: none;
-  color: #666;
+  color: var(--text-muted);
   font-size: 13px;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 6px;
   transition: color 0.3s;
+  font-weight: 600;
 }
 
 .post-action:hover {
-  color: #1e3a5f;
+  color: var(--accent-blue);
 }
 
 .post-action.liked {
-  color: #c9a961;
-  font-weight: bold;
+  color: var(--accent-gold);
 }
 
 .btn-delete {
-  background: #ffebee;
-  color: #c62828;
-  border: 1px solid #ffcdd2;
-  padding: 5px 10px;
-  border-radius: 4px;
+  background: rgba(244, 67, 54, 0.1);
+  color: #ff5252;
+  border: 1px solid rgba(244, 67, 54, 0.3);
+  padding: 6px 12px;
+  border-radius: 6px;
   font-size: 12px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.2s;
 }
 
 .btn-delete:hover {
-  background: #ffcdd2;
+  background: #f44336;
+  color: white;
 }
 
 /* SIDEBAR */
@@ -740,25 +799,26 @@ body {
 }
 
 .sidebar-widget {
-  background: white;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
 .sidebar-widget h3 {
-  color: #1e3a5f;
+  color: var(--text-main);
   font-size: 16px;
   margin-bottom: 15px;
   padding-bottom: 10px;
-  border-bottom: 2px solid #c9a961;
+  border-bottom: 2px solid var(--accent-blue);
 }
 
 .stat-item {
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .stat-item:last-child {
@@ -766,12 +826,12 @@ body {
 }
 
 .stat-label {
-  color: #666;
+  color: var(--text-muted);
   font-size: 13px;
 }
 
 .stat-value {
-  color: #1e3a5f;
+  color: var(--accent-gold);
   font-weight: 700;
   font-size: 16px;
 }
@@ -785,34 +845,35 @@ body {
 
 .infra-form-container,
 .infra-list-container {
-  background: white;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
 .infra-form-container h3,
 .infra-list-container h3 {
-  color: #1e3a5f;
+  color: var(--text-main);
   margin-bottom: 20px;
   font-size: 20px;
 }
 
 .report-item {
-  background: #f9f9f9;
+  background: #0b121a;
+  border: 1px solid var(--border-color);
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 15px;
-  border-left: 5px solid #d9534f;
-  position: relative;
+  border-left: 5px solid #ff5252;
 }
 
 .report-item.high {
-  border-left-color: #f0ad4e;
+  border-left-color: #ffa726;
 }
 
 .report-item.medium {
-  border-left-color: #5cb85c;
+  border-left-color: #66bb6a;
 }
 
 .report-header {
@@ -822,12 +883,12 @@ body {
 }
 
 .report-header h4 {
-  color: #1e3a5f;
+  color: var(--text-main);
   font-size: 15px;
 }
 
 .report-description {
-  color: #666;
+  color: var(--text-muted);
   font-size: 14px;
   margin-bottom: 10px;
 }
@@ -836,7 +897,7 @@ body {
   display: flex;
   justify-content: space-between;
   font-size: 12px;
-  color: #999;
+  color: var(--text-muted);
 }
 
 /* TALENTO & CHARLAS SECTION */
@@ -847,34 +908,37 @@ body {
 }
 
 .talent-card {
-  background: white;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
   overflow: hidden;
   transition: all 0.3s;
   position: relative;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
 .talent-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-  border-color: #c9a961;
+  box-shadow: 0 12px 30px rgba(0, 210, 255, 0.15);
+  border-color: var(--accent-blue);
 }
 
 .talent-card-header {
-  background: linear-gradient(135deg, #1e3a5f 0%, #2c4f7c 100%);
+  background: linear-gradient(135deg, #16222f 0%, #0b121a 100%);
   color: white;
   padding: 20px;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .talent-card-header h3 {
   font-size: 18px;
   margin-bottom: 5px;
+  color: var(--text-main);
 }
 
 .talent-card-header p {
   font-size: 13px;
-  opacity: 0.8;
+  color: var(--accent-blue);
 }
 
 .talent-card-body {
@@ -882,7 +946,7 @@ body {
 }
 
 .talent-card-body p {
-  color: #666;
+  color: var(--text-muted);
   font-size: 14px;
   margin-bottom: 15px;
 }
@@ -895,36 +959,40 @@ body {
 }
 
 .event-card {
-  background: white;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
   display: flex;
   gap: 25px;
   position: relative;
 }
 
 .event-date {
-  background: #1e3a5f;
-  color: white;
+  background: linear-gradient(135deg, var(--accent-blue), #005580);
+  color: #0f1923;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
   min-width: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-weight: 800;
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
 }
 
 .event-date .day {
   font-size: 32px;
-  font-weight: 700;
+  line-height: 1;
 }
 
 .event-date .month {
-  font-size: 13px;
+  font-size: 12px;
   text-transform: uppercase;
   margin-top: 5px;
+  letter-spacing: 1px;
 }
 
 .event-info {
@@ -932,9 +1000,14 @@ body {
 }
 
 .event-info h3 {
-  color: #1e3a5f;
+  color: var(--text-main);
   margin-bottom: 10px;
   font-size: 20px;
+}
+
+.event-info p {
+  color: var(--text-muted);
+  font-size: 14px;
 }
 
 .event-details {
@@ -943,7 +1016,7 @@ body {
   gap: 15px;
   margin: 15px 0;
   font-size: 14px;
-  color: #666;
+  color: var(--text-muted);
 }
 
 /* TABLA DE USUARIOS ADMIN */
@@ -956,13 +1029,17 @@ body {
 .user-table th, .user-table td {
   padding: 12px;
   text-align: left;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--border-color);
   font-size: 14px;
 }
 
 .user-table th {
-  background: #f5f5f5;
-  color: #1e3a5f;
+  background: #0b121a;
+  color: var(--accent-blue);
+}
+
+.user-table td {
+  color: var(--text-main);
 }
 
 /* NOTIFICATIONS */
@@ -970,18 +1047,21 @@ body {
   position: fixed;
   top: 30px;
   right: 30px;
-  background: #4caf50;
-  color: white;
+  background: #1b5e20;
+  color: #c8e6c9;
+  border: 1px solid #4caf50;
   padding: 15px 25px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   z-index: 2000;
   display: none;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .notification.error {
-  background: #f44336;
+  background: #b71c1c;
+  color: #ffcdd2;
+  border-color: #f44336;
 }
 
 .notification.show {
@@ -1075,9 +1155,9 @@ body {
       </div>
 
       <div class="form-group" id="authCodeGroup" style="display: none;">
-        <label style="color: #c62828;">🔒 Código de Autorización Institucional</label>
+        <label style="color: #ffcc00;">🔒 Código de Autorización Institucional</label>
         <input type="password" id="regAuthCode" placeholder="Ingrese el PIN entregado por la dirección">
-        <small style="color: #666; margin-top: 4px;">Este código es obligatorio para validar cuentas de Vocero o Profesor.</small>
+        <small style="color: #8b9bb4; margin-top: 4px;">Este código es obligatorio para validar cuentas de Vocero o Profesor.</small>
       </div>
       
       <div id="roleInfoBox" class="role-info" style="display: none;"></div>
@@ -1118,7 +1198,7 @@ body {
       <button class="nav-tab" onclick="showSection('charlas', this)">🎙️ Charlas y Talleres</button>
       <button class="nav-tab" onclick="showSection('eventos', this)">📅 Eventos</button>
       <button class="nav-tab" onclick="showSection('microcontenidos', this)">🎬 Microcontenidos</button>
-      <button class="nav-tab" id="adminConfigTab" style="display: none; background: #fff8e1; color: #b78103;" onclick="showSection('admin-config', this)">⚙️ Configuración Admin</button>
+      <button class="nav-tab" id="adminConfigTab" style="display: none; background: rgba(255,204,0,0.1); color: var(--accent-gold);" onclick="showSection('admin-config', this)">⚙️ Configuración Admin</button>
     </div>
   </div>
   
@@ -1187,7 +1267,7 @@ body {
           
           <div class="sidebar-widget">
             <h3>⚠️ Alertas Recientes</h3>
-            <div id="alertsList"><p style="font-size: 13px; color: #666;">Sin alertas críticas registradas.</p></div>
+            <div id="alertsList"><p style="font-size: 13px; color: var(--text-muted);">Sin alertas críticas registradas.</p></div>
           </div>
         </div>
       </div>
@@ -1332,14 +1412,13 @@ body {
       <div class="talent-grid" id="microcontentGrid"></div>
     </div>
 
-    <!-- PANEL DE CONFIGURACIÓN ADMIN (EXCLUSIVO TESA) -->
+    <!-- PANEL DE CONFIGURACIÓN ADMIN -->
     <div class="section" id="section-admin-config">
       <div style="display: flex; flex-direction: column; gap: 25px;">
         
-        <!-- MODIFICAR PINS -->
         <div class="admin-card">
           <h3>🔑 Modificar Códigos de Autorización (PINs)</h3>
-          <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Cambia las claves que deben ingresar los usuarios para registrarse como Vocero o Profesor.</p>
+          <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 15px;">Cambia las claves que deben ingresar los usuarios para registrarse como Vocero o Profesor.</p>
           <form class="post-form" onsubmit="updatePins(event)">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
               <div class="form-group">
@@ -1355,10 +1434,9 @@ body {
           </form>
         </div>
 
-        <!-- GESTIÓN DE USUARIOS -->
         <div class="admin-card">
           <h3>👥 Cuentas de Usuarios Registrados</h3>
-          <p style="color: #666; font-size: 14px;">Administra los usuarios inscritos en la red municipal. Puedes eliminar usuarios sospechosos o falsos.</p>
+          <p style="color: var(--text-muted); font-size: 14px;">Administra los usuarios inscritos en la red municipal.</p>
           <div style="overflow-x: auto;">
             <table class="user-table">
               <thead>
@@ -1375,11 +1453,10 @@ body {
           </div>
         </div>
 
-        <!-- MANTENIMIENTO -->
         <div class="admin-card">
           <h3>🧹 Mantenimiento del Sistema</h3>
-          <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Herramientas para reiniciar datos o borrar contenidos antiguos en caso de emergencias.</p>
-          <button class="btn-delete" style="padding: 12px 20px; font-weight: bold;" onclick="clearAllData()">⚠️ Reiniciar Base de Datos Local</button>
+          <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 15px;">Herramientas para reiniciar datos o borrar contenidos antiguos.</p>
+          <button class="btn-delete" style="padding: 12px 20px; font-weight: bold; width: 100%;" onclick="clearAllData()">⚠️ Reiniciar Base de Datos Local</button>
         </div>
 
       </div>
@@ -1391,7 +1468,6 @@ body {
 <div class="notification" id="notification"></div>
 
 <script>
-// CONFIGURACIÓN DE PINS (SE GUARDAN EN LOCALSTORAGE)
 let CODIGOS_AUTORIZACION = JSON.parse(localStorage.getItem('CODIGOS_AUTORIZACION')) || {
   vocero: 'VOCERO2026',
   profesor: 'PROFE2026'
@@ -1456,9 +1532,9 @@ function showRoleInfo() {
   }
   
   const info = {
-    'estudiante': '👨‍🎓 **Estudiante:** Acceso libre de lectura, interacciones y visualización.',
-    'vocero': '🎤 **Estudiante Vocero:** Requiere el PIN de vocero. Permite publicar publicaciones y reportes.',
-    'profesor': '👨‍🏫 **Profesor / Director:** Requiere el PIN de docente. Permite publicar publicaciones multimedia y gestión total.'
+    'estudiante': '👨‍🎓 <b>Estudiante:</b> Acceso libre de lectura, interacciones y visualización.',
+    'vocero': '🎤 <b>Estudiante Vocero:</b> Requiere el PIN de vocero. Permite publicar publicaciones y reportes.',
+    'profesor': '👨‍🏫 <b>Profesor / Director:</b> Requiere el PIN de docente. Permite publicar publicaciones multimedia y gestión total.'
   };
   infoBox.style.display = 'block';
   infoBox.innerHTML = info[role];
@@ -1568,7 +1644,6 @@ function setupUserInterface() {
     roleBadge.className = 'role-badge superadmin';
     adminTab.style.display = 'block';
     
-    // Cargar datos en panel admin
     document.getElementById('pinVoceroInput').value = CODIGOS_AUTORIZACION.vocero;
     document.getElementById('pinProfesorInput').value = CODIGOS_AUTORIZACION.profesor;
     renderAdminUserTable();
@@ -1865,7 +1940,6 @@ function deleteMicro(id) {
   }
 }
 
-// FUNCIONES EXCLUSIVAS DEL PANEL DE CONFIGURACIÓN DE TESA
 function updatePins(e) {
   e.preventDefault();
   const newVoceroPin = document.getElementById('pinVoceroInput').value.trim();
@@ -1885,7 +1959,7 @@ function updatePins(e) {
 function renderAdminUserTable() {
   const tbody = document.getElementById('userTableBody');
   if (users.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; color:#888;">No hay usuarios registrados aún.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; color:var(--text-muted);">No hay usuarios registrados aún.</td></tr>';
     return;
   }
   
@@ -1937,7 +2011,7 @@ function renderAll() {
 function renderPosts() {
   const container = document.getElementById('postsFeed');
   if (posts.length === 0) {
-    container.innerHTML = '<p style="color:#666; text-align:center; padding:20px; background:white; border-radius:8px;">No hay publicaciones en la red aún.</p>';
+    container.innerHTML = '<p style="color:var(--text-muted); text-align:center; padding:20px; background:var(--card-bg); border-radius:12px; border:1px solid var(--border-color);">No hay publicaciones en la red aún.</p>';
     return;
   }
   
@@ -1960,13 +2034,13 @@ function renderPosts() {
           <div class="post-author">
             <div class="post-avatar">${p.author.charAt(0)}</div>
             <div class="post-author-info">
-              <h4>${p.author} <small style="color:#888;">(${p.institution})</small></h4>
+              <h4>${p.author} <small style="color:var(--text-muted);">(${p.institution})</small></h4>
               <p>${p.date}</p>
             </div>
           </div>
           <span class="post-type-badge">${p.type}</span>
         </div>
-        <h3 style="color:#1e3a5f; margin-bottom:8px;">${p.title}</h3>
+        <h3 style="color:var(--text-main); margin-bottom:8px;">${p.title}</h3>
         <div class="post-content">${p.content}</div>
         ${mediaHTML}
         <div class="post-tags">
@@ -1987,7 +2061,7 @@ function renderReports() {
   const container = document.getElementById('reportsList');
   document.getElementById('statReports').textContent = reports.length;
   if (reports.length === 0) {
-    container.innerHTML = '<p style="color:#666; text-align:center;">No hay reportes activos registrados.</p>';
+    container.innerHTML = '<p style="color:var(--text-muted); text-align:center;">No hay reportes activos registrados.</p>';
     return;
   }
   container.innerHTML = reports.map(r => {
@@ -1996,7 +2070,7 @@ function renderReports() {
       <div class="report-item ${r.severity}">
         <div class="report-header">
           <h4>[${r.type.toUpperCase()}] - ${r.school}</h4>
-          <span style="font-weight:bold; font-size:12px;">Gravedad: ${r.severity.toUpperCase()}</span>
+          <span style="font-weight:bold; font-size:12px; color:var(--accent-gold);">Gravedad: ${r.severity.toUpperCase()}</span>
         </div>
         <div class="report-description">${r.description}</div>
         <div class="report-footer">
@@ -2012,7 +2086,7 @@ function renderTalents() {
   const container = document.getElementById('talentGrid');
   document.getElementById('statTalents').textContent = talents.length;
   if (talents.length === 0) {
-    container.innerHTML = '<p style="color:#666; grid-column: 1/-1; text-align:center;">No hay proyectos publicados.</p>';
+    container.innerHTML = '<p style="color:var(--text-muted); grid-column: 1/-1; text-align:center;">No hay proyectos publicados.</p>';
     return;
   }
   container.innerHTML = talents.map(t => {
@@ -2026,7 +2100,7 @@ function renderTalents() {
         <div class="talent-card-body">
           <p>${t.description}</p>
           <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
-            <small style="color:#888;">Autor: ${t.author}</small>
+            <small style="color:var(--text-muted);">Autor: ${t.author}</small>
             ${canDelete ? `<button class="btn-delete" onclick="deleteTalent(${t.id})">🗑️ Eliminar</button>` : ''}
           </div>
         </div>
@@ -2039,7 +2113,7 @@ function renderCharlas() {
   const container = document.getElementById('charlasGrid');
   document.getElementById('statCharlas').textContent = charlas.length;
   if (charlas.length === 0) {
-    container.innerHTML = '<p style="color:#666; grid-column: 1/-1; text-align:center;">No hay charlas o talleres programados.</p>';
+    container.innerHTML = '<p style="color:var(--text-muted); grid-column: 1/-1; text-align:center;">No hay charlas o talleres programados.</p>';
     return;
   }
   container.innerHTML = charlas.map(c => {
@@ -2054,7 +2128,7 @@ function renderCharlas() {
           <p><strong>📅 Fecha:</strong> ${c.date}</p>
           <p>${c.description}</p>
           <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
-            <small style="color:#888;">Colegio: ${c.school}</small>
+            <small style="color:var(--text-muted);">Colegio: ${c.school}</small>
             ${canDelete ? `<button class="btn-delete" onclick="deleteCharla(${c.id})">🗑️ Eliminar</button>` : ''}
           </div>
         </div>
@@ -2067,7 +2141,7 @@ function renderEvents() {
   const container = document.getElementById('eventList');
   document.getElementById('statEvents').textContent = events.length;
   if (events.length === 0) {
-    container.innerHTML = '<p style="color:#666; text-align:center;">No hay eventos programados.</p>';
+    container.innerHTML = '<p style="color:var(--text-muted); text-align:center;">No hay eventos programados.</p>';
     return;
   }
   container.innerHTML = events.map(ev => {
@@ -2101,11 +2175,11 @@ function renderEvents() {
 function renderMicrocontents() {
   const container = document.getElementById('microcontentGrid');
   if (microcontents.length === 0) {
-    container.innerHTML = '<p style="color:#666; grid-column: 1/-1; text-align:center;">No hay microcontenidos educativos.</p>';
+    container.innerHTML = '<p style="color:var(--text-muted); grid-column: 1/-1; text-align:center;">No hay microcontenidos educativos.</p>';
     return;
   }
   container.innerHTML = microcontents.map(m => {
-    const canDelete = currentUser.role === 'superadmin';
+    const canGrade = currentUser.role === 'superadmin';
     return `
       <div class="talent-card">
         <div class="talent-card-header">
@@ -2115,8 +2189,8 @@ function renderMicrocontents() {
         <div class="talent-card-body">
           <p>${m.description}</p>
           <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
-            <small style="color:#888;">Por: ${m.author}</small>
-            ${canDelete ? `<button class="btn-delete" onclick="deleteMicro(${m.id})">🗑️ Eliminar</button>` : ''}
+            <small style="color:var(--text-muted);">Por: ${m.author}</small>
+            ${canGrade ? `<button class="btn-delete" onclick="deleteMicro(${m.id})">🗑️ Eliminar</button>` : ''}
           </div>
         </div>
       </div>
